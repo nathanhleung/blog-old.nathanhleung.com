@@ -1,0 +1,78 @@
+---
+---
+// utility
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  &.half {
+    max-width: 50%;
+  }
+}
+.img-circle {
+  border-radius: 50%;
+}
+.border-darkgray {
+  border: 1px solid #333;
+}
+
+// colors
+/* Black */
+.theme-black .sidebar {
+  background-color: #111;
+}
+.theme-black .content a,
+.theme-black .related-posts li a:hover {
+  color: #111;
+}
+
+// layout
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.sidebar-about h1 {
+  font-family: "Open Sans", sans-serif;
+  a:hover {
+    text-decoration: none;
+  }
+}
+p.lead a:hover {
+  text-decoration: none;
+}
+a.sidebar-nav-item {
+  &-icon .fa {
+    display: inline-block;
+    margin-right: 30px;
+    margin-top: 90px;
+    &:hover {
+      color: #aaa;
+    }
+  }
+  & > span {
+    display: inline-block;
+    &:not(.fa)::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 1px;
+      background: white;
+      transition: all 0.3s;
+    }
+  }
+  &.active,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    font-weight: normal;
+    &:not(.fa) > span::after {
+      // disable effect
+      // width: 100%;
+    }
+  }
+}
+.related-posts li a:hover {
+  text-decoration: underline;
+}
+.related-posts li a:hover small {
+  color: #999;
+}

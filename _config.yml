@@ -1,0 +1,27 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:           /article/:year/:month/:day/:title/
+relative_permalinks: false
+
+# Setup
+title:            Nathan Leung
+tagline:          'Blog'
+description:      'Lead Web Developer <a href="https://twitter.com/LeungEnterprise">@LeungEnterprise</a>'
+baseurl:          /
+
+author:
+  name:           'Nathan Leung'
+  url:            http://leung.enterprises/
+
+paginate:         5
+
+# Custom vars
+version:          1.1.0
+
+
+github:           https://github.com/18nleung
+linkedin:         https://linkedin.com/in/18nleung
+twitter:          https://twitter.com/LeungEnterprise

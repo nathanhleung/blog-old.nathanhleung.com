@@ -1,0 +1,39 @@
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="{{ site.baseurl }}">
+          <!-- /public/images/me.jpg -->
+          <!-- <img class="img-responsive half img-circle border-darkgray" src="https://pbs.twimg.com/profile_images/559696552491356161/qjtKagoV.png"> -->
+          {{ site.title }}
+        </a>
+      </h1>
+      <p class="lead">{{ site.description }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}"><span>Home</span></a>
+
+      {% comment %}
+        The code below dynamically generates a sidebar nav of pages with
+        `layout: page` in the front-matter. See readme for usage.
+      {% endcomment %}
+
+      {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}"><span>{{ node.title }}</span></a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      <a class="sidebar-nav-item-icon" href="{{ site.github }}"><span class="fa fa-github"></span></a>
+      <a class="sidebar-nav-item-icon" href="{{ site.linkedin }}"><span class="fa fa-linkedin"></span></a>
+      <a class="sidebar-nav-item-icon" href="{{ site.twitter }}"><span class="fa fa-twitter"></span></a>
+      <!-- <span class="sidebar-nav-item">Blog v{{ site.version }}</span> -->
+    </nav>
+
+    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+  </div>
+</div>

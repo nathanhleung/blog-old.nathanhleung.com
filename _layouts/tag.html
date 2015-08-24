@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<h1>Articles by tag: <a href="/tag/{{ page.tag }}">{{ page.tag }}</a></h1>
+<br>
+<div>
+    {% if site.tags[page.tag] %}
+        {% for post in site.tags[page.tag] %}
+            <div class="post">
+              <h2 class="post-title">
+                <a href="{{ post.url }}">
+                  {{ post.title }}
+                </a>
+              </h2>
+
+              <span class="post-date">{{ post.date | date_to_string }}</span>
+
+              {{ post.excerpt }}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>There are no posts for this tag.</p>
+    {% endif %}
+</div>

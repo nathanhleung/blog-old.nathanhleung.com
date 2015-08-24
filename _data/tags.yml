@@ -1,0 +1,10 @@
+- slug: html
+  name: HTML
+- slug: css
+  name: CSS
+- slug: javascript
+  name: Javascript
+- slug: nodejs
+  name: Node.js
+- slug: apps
+  name: Apps
