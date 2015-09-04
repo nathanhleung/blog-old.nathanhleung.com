@@ -15,7 +15,7 @@ My frontend dev toolkit consists of [Harp](http://harpjs.com), [Bootstrap](http:
 
 I'm learning [CoffeeScript](http://coffeescript.org/) and after that I'd like to learn [Ruby on Rails](http://rubyonrails.org/) or mobile app development with [Xamarin](http://xamarin.com/).
 
-For a full list of my skills, experience, and education, feel to download my [résumé](/public/uploads/Resume%20of%20Nathan%20Leung.pdf).
+For a full list of my skills, experience, and education, please feel free to download my [résumé](/public/uploads/Resume%20of%20Nathan%20Leung.pdf).
 
 ## Contact
 Feel free to email me at [nathan@leun.ga](mailto:nathan@leun.ga).  I'm also on Twitter &mdash; shoutout to [@nathanhleung](http://twitter.com/nathanhleung).
