@@ -14,4 +14,4 @@ My webapp stack usually consists of [MongoDB](http://mongodb.org), [ExpressJS](h
 My frontend dev toolkit consists of [Harp](http://harpjs.com), [Bootstrap](http://getbootstrap.com), [Jade](http://jade-lang.com), [Stylus](https://learnboost.github.io/stylus/), and quite a few [Gulp](http://gulpjs.com) plugins.
 
 ## Contact
-Feel free to email me at [nathan@leung.enterprises](mailto:nathan@leung.enterprise).  I'm also on Twitter &mdash; give a shoutout to [@LeungEnterprise](http://twitter.com/LeungEnterprise).
+Feel free to email me at [nathan@leun.ga](mailto:nathan@leun.ga).  I'm also on Twitter &mdash; give a shoutout to [@LeungEnterprise](http://twitter.com/LeungEnterprise).
