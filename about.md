@@ -14,5 +14,8 @@ My webapp stack usually consists of <a href="http://mongodb.org" target="_blank"
 My frontend dev toolkit consists of <a href="http://harpjs.com" target="_blank">Harp</a>, <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, <a href="http://jade-lang.com" target="_blank">Jade</a>, <a href="https://learnboost.github.io/stylus/" target="_blank">Stylus</a>, and quite a few <a href="http://gulpjs.com" target="_blank">Gulp</a> plugins.
 
 I'm learning <a href="http://coffeescript.org" target="_blank">CoffeeScript</a>.
+
+For a full list of my skills, experience, and education, please download my <a href="/public/uploads/Resume%20of%20Nathan%20Leung.pdf" target="_blank">résumé</a>.
+
 ## Contact
 Feel free to email me at [nathan@leun.ga](mailto:nathan@leun.ga).  I'm also on Twitter &mdash; shoutout to <a href="https://twitter.com/nathanhleung" target="_blank">@nathanhleung</a>.
