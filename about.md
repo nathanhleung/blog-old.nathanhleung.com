@@ -5,15 +5,14 @@ title: About
 > I have no fear, only ambition!<br>
 > &ndash; Tupac Shakur
 
-I'm Nathan, lead web designer and developer at [Leung Enterprises](https://www.leungenterprises.com/).
+I'm Nathan, lead web designer and developer at <a href="https://www.leungenterprises.com" target="_blank">Leung Enterprises</a>.
 
-I enjoy making cool stuff, primary with Javascript.  Visit my [GitHub profile](http://github.com/nathanhleung) to see a few things that I've made.
+I enjoy making cool stuff, primary with Javascript.  Visit my <a href="http://github.com/nathanhleung" target="_blank">Github profile</a> to see a few things that I've made.
 
-My webapp stack usually consists of [MongoDB](http://mongodb.org), [ExpressJS](http://expressjs.com), and [Node.js](http://nodejs.org). I use [AngularJS](http://angularjs.org) when I want to make something quick.
+My webapp stack usually consists of <a href="http://mongodb.org" target="_blank">MongoDB</a>, <a href="http://expressjs.com" target="_blank">ExpressJS</a>, and <a href="http://nodejs.org" target="_blank">Node.js</a>. I use <a href="http://angularjs.org" target="_blank">AngularJS</a> when I want to make something quick.
 
-My frontend dev toolkit consists of [Harp](http://harpjs.com), [Bootstrap](http://getbootstrap.com), [Jade](http://jade-lang.com), [Stylus](https://learnboost.github.io/stylus/), and quite a few [Gulp](http://gulpjs.com) plugins.
+My frontend dev toolkit consists of <a href="http://harpjs.com" target="_blank">Harp</a>, <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, <a href="http://jade-lang.com" target="_blank">Jade</a>, <a href="https://learnboost.github.io/stylus/" target="_blank">Stylus</a>, and quite a few <a href="http://gulpjs.com" target="_blank">Gulp</a> plugins.
 
-I'm learning [CoffeeScript](http://coffeescript.org/) and after that I'd like to learn [Ruby on Rails](http://rubyonrails.org/) or mobile app development with [Xamarin](http://xamarin.com/).
-
+I'm learning <a href="http://coffeescript.org" target="_blank">CoffeeScript</a>.
 ## Contact
-Feel free to email me at [nathan@leun.ga](mailto:nathan@leun.ga).  I'm also on Twitter &mdash; give a shoutout to [@nathanhleung](http://twitter.com/nathanhleung).
+Feel free to email me at [nathan@leun.ga](mailto:nathan@leun.ga).  I'm also on Twitter &mdash; shoutout to <a href="https://twitter.com/nathanhleung" target="_blank">@nathanhleung</a>.

@@ -10,7 +10,7 @@ In this tutorial, I'll show you how to set up a Lubuntu Virtual Machine in Windo
 A virtual machine will allow you to run Windows and Linux in parallel without the need to shut down everytime you want to switch operating systems.
 
 ## Installing VirtualBox
-Begin by going to the [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads) page and downloading and installing the latest version (5.0.2 at the time of this writing).  Next, download a Lubuntu ISO on the [Lubuntu Downloads](https://help.ubuntu.com/community/Lubuntu/GetLubuntu) page.
+Begin by going to the <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox Downloads</a> page and downloading and installing the latest version (5.0.2 at the time of this writing).  Next, download a Lubuntu ISO on the <a href="https://help.ubuntu.com/community/Lubuntu/GetLubuntu" target="_blank">Lubuntu Downloads</a> page.
 
 ## Setup
 Once you've installed VirtualBox and downloaded the ISO, open up VirtualBox, click the "New" button, select Ubuntu and the type (32- or 64-bit), type "Lubuntu" in the Name field, and click next.  For the remaining options, just leave them on their defaults (dynamic hard drive, etc.) and click "Next."
