@@ -14,4 +14,4 @@ I'm experienced with many cutting-edge technologies on the full stack, primarily
 For a full list of my skills, experience, and education, please visit my <a href="https://www.linkedin.com/in/nathanhleung" target="_blank">LinkedIn</a>.
 
 ## Contact
-My email address is [me@nathanhleung.com](mailto:me@nathanhleung.com), and I'm also on Twitter as <a href="https://twitter.com/nathanhleung" target="_blank">@nathanhleung</a>, albeit not as active.
+My email address is [me@nathanhleung.com](mailto:me@nathanhleung.com), and I'm also on Twitter as <a href="https://twitter.com/nathanhleung" target="_blank">@nathanhleung</a>.
