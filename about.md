@@ -18,4 +18,4 @@ I'm learning <a href="http://coffeescript.org" target="_blank">CoffeeScript</a>.
 For a full list of my skills, experience, and education, please download my <a href="/public/uploads/Resume%20of%20Nathan%20Leung.pdf" target="_blank">résumé</a>.
 
 ## Contact
-Feel free to email me at [nathan@leun.ga](mailto:nathan@leun.ga).  I'm also on Twitter &mdash; shoutout to <a href="https://twitter.com/nathanhleung" target="_blank">@nathanhleung</a>.
+Feel free to email me at [me@nathanhleung.com](mailto:me@nathanhleung.com).  I'm also on Twitter &mdash; shoutout to <a href="https://twitter.com/nathanhleung" target="_blank">@nathanhleung</a>.
