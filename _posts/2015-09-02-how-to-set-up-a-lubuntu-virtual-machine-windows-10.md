@@ -3,7 +3,7 @@ layout: post
 title: How to Set Up a Lubuntu Virtual Machine in Windows 10
 author: Nathan Leung
 comments: true
-tags: [apps]
+tags: [virtualbox]
 ---
 In this tutorial, I'll show you how to set up a Lubuntu Virtual Machine in Windows 10.  We'll be using the latest version of VirtualBox, 5.0.2, and Lubuntu, a lightweight Linux distribution based off of Ubuntu.
 
