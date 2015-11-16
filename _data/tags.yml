@@ -1,10 +1,14 @@
-- slug: html
-  name: HTML
-- slug: css
-  name: CSS
-- slug: javascript
-  name: Javascript
-- slug: nodejs
-  name: Node.js
 - slug: apps
   name: Apps
+- slug: css
+  name: CSS
+- slug: html
+  name: HTML
+- slug: javascript
+  name: Javascript
+- slug: misc
+  name: Miscellaneous
+- slug: nodejs
+  name: Node.js
+- slug: virtualbox
+  name: virtualbox
