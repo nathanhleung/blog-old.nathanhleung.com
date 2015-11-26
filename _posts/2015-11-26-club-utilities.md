@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Club Utilities
+title: Club Credit Checker
 author: Nathan Leung
 comments: true
 tags: [misc]
