@@ -3,7 +3,7 @@ layout: project
 title: VeryLoudCloud
 date: March 2015
 description: A very rudimentary Course-Management System written in Node.js
-projectUrl: https://www.nathanhleung.com/veryloudcloud
+projectUrl: https://github.com/nathanhleung/veryloudcloud
 order: 2
 ---
 I've been interested in programming for a long time, and after starting to learn Javascript in January 2014, I made my first app, 
