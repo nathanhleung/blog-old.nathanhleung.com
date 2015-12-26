@@ -34,7 +34,7 @@ todoApp
 - views // Our Jade files
 - controllers // Routes and other application logic (APIs, etc).
 --- main.js // Main controller file
-- public // Files that the client can access, kind of like public_html in Apache
+- public // Files that the client can access, (like public_html in Apache)
 --- js
 ----- app.js // Our Angular code
 - app.js // Our main Node.js and Express code
@@ -105,7 +105,7 @@ app.listen(app.get('port'), function() {
 If you run `node app` and visit http://localhost:3000, you'll see that we now have a nice little HTTP server set up.
 
 ## Creating a Model
-In the `models` directory, create a new file called `Todo.js`.  In the file, put this:
+In the `models` directory, create a new file called `Todo.js`. The model defines the shape of our documents (rows in SQL), and Mongoose will use this model to create a collection in MongoDB (analagous to a table in SQL) for the Todos. 
 
 ```js
 var mongoose = require('mongoose');
@@ -119,12 +119,14 @@ module.exports = mongoose.model('Todo', todoSchema);
 ```
 
 ## Creating a Controller
-We need to create a controller to define the actions of our Todos REST API.  Create a new file, `main.js`, in the `controllers` directory.
+We need to create a controller to define and handle the actions of our Todos REST API.  Create a new file, `main.js`, in the `controllers` directory.
 
 ```js
-require('../models/Todo'); // Import the Todo model so we can query the database
+require('../models/Todo'); // Import the Todo model so we can query the DB
+
 var mainController = {
-  getTodos: function(req, res) {
+  // This gets all Todos in the collection and sends it back in JSON format
+  getAllTodos: function(req, res) {
     Todo.find({}, function(err, todos) {
       if (err) {
         // Send the error to the client if there is one
@@ -135,6 +137,7 @@ var mainController = {
     });
   },
   postNewTodo: function(req, res) {
+    // This creates a new todo using POSTed data (in req.body)
     Todo.create({
       text: req.body.text,
       done: false
@@ -171,7 +174,7 @@ var mainController = {
 module.exports = mainController;
 ```
 ## Creating the Routes
-Back in the main app file, `app.js`, we need to define our API routes. First, we need to import our route actions. Right under the dependencies, add the main controller:
+Back in the main app file, `app.js`, we need to define our API routes. First, we need to import our route handlers ("controllers"). Right under the dependencies, add the main controller:
 
 ```js
 ...
@@ -184,6 +187,24 @@ var mainController = require('./controllers/main');
  */
 ...
 ```
+
+Now, we need to configure the routes. Below, under the "Configure App" section, add this:
+
+```
+...
+app.use(methodOverride()); // Allow PUT/DELETE
+
+app.get('/todos', mainController.getAllTodos);
+app.post('/todos', mainController.postNewTodo);
+app.delete('/todos/:id', mainController.deleteTodo);
+
+/**
+ * Start app
+ */
+...
+```
+
+How does this work? Here's an example: when you `GET` `/todos` in your browser, Express will execute the middleware above (logging, body parsing, method overriding) and then call the `mainController.getAllTodos` function with `(req, res)` as arguments.
 
 ## Acknowledgments
 This was based on [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular)'s great blog post, and the architecture is based on [sahat](https://github.com/sahat)'s [Hackathon Starter](https://github.com/sahat/hackathon-starter)
