@@ -5,9 +5,11 @@ author: Nathan Leung
 comments: true
 tags: [nodejs]
 ---
-The MEAN Stack is made of MongoDB, Express.js, AngularJS and Node.js.  MongoDB is a database, Express.js provides routing support (i.e. mapping URLs to the correct destination, a simple use case would be to make a REST API), AngularJS allows for the client to communicate with the Express.js-based API, and Node.js is the engine that allows us to run Javascript code on the server (in this case, it's the backbone for Express).
+Welcome to this MEAN stack quick start guide.  The MEAN Stack is made of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angularjs.org/) and [Node.js](https://nodejs.org/).
 
-This getting started guide applies to the current latest stable versions of Angular (1.4.x), Express (4.x), and Node (4.x). As usual, we'll be making a very simple todos app
+A quick rundown of what every part does: MongoDB is a database, Express.js provides routing support (i.e. mapping URLs to the correct destination/action), AngularJS allows for a model-view-controller architecture on the client side (in this case, it allows the client to communicate with the Express.js-based API), and Node.js is the engine that allows us to run Javascript code on the server in the first place.
+
+This getting started guide applies to the current latest stable versions of Angular (1.4.x), Express (4.x), and Node (4.x). As usual, we'll be making a very simple todo app.
 
 ## File Structure
 Create a new directory called `todoApp` with the following structure:
@@ -16,7 +18,7 @@ Create a new directory called `todoApp` with the following structure:
 todoApp
 - models // Schemas for database objects
 --- Todo.js // Todo schema
-- views // Our Jade files
+- views // Our Jade files (template engine that compiles to HTML)
 - controllers // Routes and other application logic (APIs, etc).
 --- main.js // Main controller file
 - public // Files that the client can access, (like public_html in Apache)
@@ -25,7 +27,7 @@ todoApp
 - app.js // Our main Node.js and Express code
 ```
 
-Run `npm init` to begin - feel free to fill in whatever information it prompts you for (simply pressing "Enter" works to, for the non-required fields).  This will create a `package.json` file for you, which holds the dependencies for the app.
+Run `npm init` to begin - feel free to fill in whatever information it prompts you for (simply pressing "Enter" works to, for the non-required fields).  This will create a `package.json` file for you, which holds the dependencies for the app ([NPM](https://www.npmjs.com/) is the package manager for Node).
 
 ## Dependencies
 ### Node.js
@@ -53,9 +55,9 @@ Let's install the Node dependencies first.  Run `npm install express mongoose mo
 }
 ```
 ### Frontend
-Now, let's install the frontend dependencies.  We'll use Bower, which is sort of like NPM, but for the frontend.  To install it, run `sudo npm install bower -g`.  This will allow you to use it on the command line.
+Now, let's install the frontend dependencies.  We'll use [Bower](http://bower.io/), which is sort of like NPM, but for the frontend.  To install it, run `sudo npm install bower -g`.  This will allow you to use the `bower` command in the terminal.
 
-To install the dependencies, run `bower install angular bootstrap`. Bower will create a directory called `bower_components` and put everything in there. After they have finished installing, run `bower init`. This will create a file called `bower.json`.  It's pretty much the same process as `npm init` (just press Enter), but just make sure to mark the package as private and "set currently installed packages as dependencies".  Your `bower.json` should look like this afterwards:
+To install the frontend dependencies, run `bower install angular bootstrap`. Bower will create a directory called `bower_components` and put everything in there. After the deps have finished installing, run `bower init`. This will create a file called `bower.json`.  Bower will run you through pretty much the same process as `npm init` (i.e. just press Enter and you'll be fine), but just make sure to mark the package as private and "set currently installed packages as dependencies" when those options are presented.  Your `bower.json` should look like this afterwards:
 
 ```json
 {
@@ -85,7 +87,7 @@ To install the dependencies, run `bower install angular bootstrap`. Bower will c
 
 ## Backend
 ### Configuring Express
-Now that the dependencies have been installed, let's create our app.  To begin, open the `app.js` file that's in the app root (not in the `public/js` directory).
+Now that the dependencies have been installed, let's create our app.  To begin, open the `app.js` file that's in the app root (not in the `public/js` directory, that's where our Angular code will go).
 
 ```js
 // app.js
@@ -131,9 +133,8 @@ app.listen(app.get('port'), function() {
 
 If you run `node app` and visit http://localhost:3000, you'll see that we now have a nice little HTTP server set up.
 
-
 #### Jade
-We'll be using Jade, a very popular templating language for Node.js. It's pretty much a terser version of HTML:
+If we look above, we'll see the line `app.set('view engine', 'jade');`.  What this does is tell Express that the files in the `views` directory should be compiled using the Jade. [Jade](http://jade-lang.com/) is a very popular templating language for Node.js, and it's pretty much a terser version of HTML:
 
 ```jade
 doctype html
@@ -147,8 +148,10 @@ html
     p This is my first Jade template!
 ```
 
+We'll go into more depth later, when we write the frontend code.
+
 ### Creating a Model
-In the `models` directory, create a new file called `Todo.js`. The model defines the shape of our documents (rows in SQL), and Mongoose will use this model to create a collection in MongoDB (analagous to a table in SQL) for the Todos. 
+Now that we've got the basics of our app setup, we need to create a model for the Todos. This model will define the shape of our documents (analagous to rows in SQL), and Mongoose will use this model to create a collection in MongoDB (analagous to a table in SQL) for the Todos.  To create our Todo model, in the `models` directory create a new file called `Todo.js` with this code:
 
 ```js
 // models/Todo.js
@@ -162,7 +165,7 @@ module.exports = mongoose.model('Todo', todoSchema);
 ```
 
 ### Creating a Controller
-We need to create a controller to define and handle the actions of our Todos REST API.  Create a new file, `main.js`, in the `controllers` directory.
+Now, we need to create a controller. This controller will handle the routes of our Todos REST API (e.g. GET /todos, POST /todos). Create a new file, `main.js`, in the `controllers` directory with this code:
 
 ```js
 // controllers/main.js
@@ -215,6 +218,7 @@ var mainController = {
   }
 }
 
+// Allow the controller to be imported into the main app.js file
 module.exports = mainController;
 ```
 ### Creating the Routes
@@ -257,7 +261,7 @@ app.delete('/todos/:id', mainController.deleteTodo);
 
 How does this work? Here's an example: when you `GET` `/todos` in your browser, Express will execute the middleware above (logging, body parsing, method overriding) and then call the `mainController.getAllTodos` function with `(req, res)` as arguments.  The `getAllTodos` function will query the database for all the todos and send them to the client in JSON format.
 
-If you run `node app` and visit http://localhost:3000/todos, you should see an empty array.
+If you run `node app` and visit http://localhost:3000/todos, you should see an empty array (since we have no Todos).
 
 ## Frontend
 Our API has been built.  Now, we need a way to interact with it on the frontend.  To do so, we can use Angular!
