@@ -298,9 +298,11 @@ If you run `node app` now and visit http://localhost:3000, you should now see a 
 
 ```js
 // public/js/app.js
-var app = angular.module('todoApp', []); // Creates an angular app called 'todoApp' with no dependencies ([])
-// Creates an angular controller called MainCtrl, which uses the $http service (for AJAX)
-app.controller('MainCtrl', function($http) {
+angular
+  .module('todoApp', []); // Creates an angular app called 'todoApp' with no dependencies ([])
+  
+// This is our controller function, which uses the $http service (for AJAX)
+function MainCtrl($http) {
   // We use `this` because so we can use the controllers as instances
   // We'll set vm to the controller this value because the HTTP callback this value is different from the controller this value
   var vm = this;
@@ -336,8 +338,11 @@ app.controller('MainCtrl', function($http) {
         console.log("Error: " + data);
       });
   };
+}
 
-});
+angular
+  .module('todoApp') // Tell Angular we are setting a controller on this app
+  .controller('MainCtrl', MainCtrl);
 
 ```
 
@@ -396,3 +401,5 @@ Also, the full source is viewable here: https://github.com/nathanhleung/MEAN-tod
 
 ## Acknowledgments
 This was based on [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular)'s great blog post, and the architecture is based on [sahat](https://github.com/sahat)'s [Hackathon Starter](https://github.com/sahat/hackathon-starter)
+
+For Angular code style, I referred to Todd Motto's excellent [Angular Styleguide](https://github.com/toddmotto/angular-styleguide)
