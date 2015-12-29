@@ -12,7 +12,9 @@ files into vanilla ES5 which can be used in any major browser (or Node.js).  Her
 First, you need to install a preset.  Previously, Babel came with transpilers (e.g. React, ES2015), but with the release of 6.0
 the Babel devs have changed the API so that the developer has to specify which transpilers should be used.
 
-Let's install the [stage-0](https://babeljs.io/docs/plugins/preset-stage-0/) preset, which has the most bleeding-edge set of features.  
+Let's install the [stage-0](https://babeljs.io/docs/plugins/preset-stage-0/) preset, which has the most bleeding-edge set of 
+features.  
+
 To install, run `npm install babel-preset-stage-0 --save-dev`.  Once this is done installing, we need to create a `.babelrc` file to
 tell Babel which presets we want to use.  Create that file, and put the following contents inside:
 
