@@ -9,11 +9,10 @@ tags: [nodejs]
 files into vanilla ES5 which can be used in any major browser (or Node.js).  Here's how to get started.
 
 ## Preset
-First, you need to install a preset.  Previously, Babel came with transpilers (e.g. React, ES2015), but with the release of 6.0
-the Babel devs have changed the API so that the developer has to specify which transpilers should be used.
+First, you need to install a preset.  Previously, Babel came with transpilers (e.g. React, ES2015), but with the release of [Babel 6.0](https://babeljs.io/blog/2015/10/29/6.0.0/), the API was changed such that the developer now has to specify which transpilers should be used.
 
 Let's install the [stage-0](https://babeljs.io/docs/plugins/preset-stage-0/) preset, which has the most bleeding-edge set of 
-features.  
+features - decorators, async functions, exponentiation, and more.
 
 To install, run `npm install babel-preset-stage-0 --save-dev`.  Once this is done installing, we need to create a `.babelrc` file to
 tell Babel which presets we want to use.  Create that file, and put the following contents inside:
