@@ -5,9 +5,10 @@ author: Nathan Leung
 comments: true
 tags: [nodejs]
 ---
-If you've ever wanted to learn the [only real dev language](https://www.reddit.com/r/ProgrammerHumor/comments/2skwgu/for_everyone_who_keeps_claiming_that_nodejs_is/), you're in the right place! We'll be using the MEAN stack today with Angular 2.0 to create a rudimentary todo app.
+Welcome to the MEAN stack tutorial. We'll be using the MEAN today with Angular 2.0 to create a rudimentary todo app.
 
 ## What We'll Be Building
+Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
 
 ![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
 
