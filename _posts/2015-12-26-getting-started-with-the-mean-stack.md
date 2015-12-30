@@ -1,105 +1,104 @@
 ---
 layout: post
-title: Getting Started with the MEAN Stack
+title: Getting Started with the MEAN Stack and Angular 2.0
 author: Nathan Leung
 comments: true
 tags: [nodejs]
 ---
-Welcome to this MEAN stack quick start guide.  The MEAN Stack is made of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angularjs.org/) and [Node.js](https://nodejs.org/).
+If you've ever wanted to learn the [only real dev language](https://www.reddit.com/r/ProgrammerHumor/comments/2skwgu/for_everyone_who_keeps_claiming_that_nodejs_is/), you're in the right place! We'll be using the MEAN stack today with Angular 2.0 to create a rudimentary todo app.
 
-A quick rundown of what every part does: MongoDB is a database, Express.js provides routing support (i.e. mapping URLs to the correct destination/action), AngularJS allows for a model-view-controller architecture on the client side (in this case, it allows the client to communicate with the Express.js-based API), and Node.js is the engine that allows us to run Javascript code on the server in the first place.
+## What We'll Be Building
+![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
 
-This getting started guide applies to the current latest stable versions of Angular (1.4.x), Express (4.x), and Node (4.x). As usual, we'll be making a very simple todo app.
+A quick review: MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/). MongoDB is a database, Express.js provides routing support (i.e. mapping URLs to the correct destination/action), AngularJS allows for a model-view-controller architecture on the client side (in this case, it allows the client to communicate with the Express.js-based API), and Node.js is the engine that allows us to run Javascript code on the server in the first place.
+
+This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x). Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing Angular 1.x, so our app will be written with the latest Angular 2 beta. And just to future-proof everything, we'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel](https://babeljs.io/) transpiler. Let's begin!
 
 ## File Structure
-Create a new directory called `todoApp` with the following structure:
+Create a new directory called `todoapp` with the following structure:
 
 ```
-todoApp
-- models // Schemas for database objects
---- Todo.js // Todo schema
-- views // Our Jade files (template engine that compiles to HTML)
-- controllers // Routes and other application logic (APIs, etc).
---- main.js // Main controller file
-- public // Files that the client can access, (like public_html in Apache)
---- js
------ app.js // Our Angular code
-- app.js // Our main Node.js and Express code
+todoapp
+- src // Our ES6 backend code
+--- controllers // Controllers directory
+--- models // Mongoose models directory
+- views // Our Jade views
+--- templates // Our Angular templates
+- webpack // Our frontend code
+--- js // Our frontend JS
 ```
 
-Run `npm init` to begin - feel free to fill in whatever information it prompts you for (simply pressing "Enter" works to, for the non-required fields).  This will create a `package.json` file for you, which holds the dependencies for the app ([NPM](https://www.npmjs.com/) is the package manager for Node).
+To start your app, create a file called `package.json` in the root app directory (`todoapp`) with the following content:
 
-## Dependencies
-### Node.js
-Let's install the Node dependencies first.  Run `npm install express mongoose morgan body-parser method-override jade --save`. Once the dependencies have finished installing, your `package.json` should look something like this:
-
-```json
+```js
 {
   "name": "todoapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel": "babel src --out-dir lib",
+    "babel:w": "babel -w src --out-dir lib",
+    "webpack": "webpack",
+    "webpack:w": "webpack --watch",
+    "postinstall": "npm run babel && npm run webpack",
+    "start": "node lib/app"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular2": "^2.0.0-beta.0",
     "body-parser": "^1.14.2",
+    "bootstrap": "^3.3.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
     "express": "^4.13.3",
     "jade": "^1.11.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.3.4",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "systemjs": "0.19.6",
+    "zone.js": "0.5.10",
+    "babel-cli": "^6.3.17",
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "script-loader": "^0.6.1",
+    "style-loader": "^0.13.0",
+    "uglify-loader": "^1.3.0",
+    "webpack": "^1.12.9"
   }
 }
 ```
+
+This file tells [NPM](https://www.npmjs.com) what dependencies we need, and sets up a few helper scripts we can use to compile our ES6 and package our frontend files.
+
+## Dependencies
+### Node.js
+We've defined our Node dependencies in `package.json`. Now, we need to install them.  Run `npm install`. NPM will create a new directory called `node_modules` and put our dependencies in there.
+
 ### Frontend
-Now, let's install the frontend dependencies.  We'll use [Bower](http://bower.io/), which is sort of like NPM, but for the frontend.  To install it, run `sudo npm install bower -g`.  This will allow you to use the `bower` command in the terminal.
-
-To install the frontend dependencies, run `bower install angular bootstrap`. Bower will create a directory called `bower_components` and put everything in there. After the deps have finished installing, run `bower init`. This will create a file called `bower.json`.  Bower will run you through pretty much the same process as `npm init` (i.e. just press Enter and you'll be fine), but just make sure to mark the package as private and "set currently installed packages as dependencies" when those options are presented.  Your `bower.json` should look like this afterwards:
-
-```json
-{
-  "name": "todoapp",
-  "description": "",
-  "main": "index.js",
-  "authors": [
-    ""
-  ],
-  "license": "ISC",
-  "homepage": "",
-  "moduleType": [],
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "angular": "~1.4.8",
-    "bootstrap": "~3.3.6"
-  }
-}
-```
+What about our frontend dependencies? Don't worry, we've already installed them with our Node dependencies.  If you take a closer look at our `package.json`, you'll see that we've also installed them - `angular2` and `bootstrap`, to name a few.
 
 ## Backend
 ### Configuring Express
-Now that the dependencies have been installed, let's create our app.  To begin, open the `app.js` file that's in the app root (not in the `public/js` directory, that's where our Angular code will go).
+Now that the dependencies have been installed, let's create our app.  To begin, create a file called `app.js` in the `src` directory.  The following code will set up our dependencies, connect to our DB, and create a rudimentary HTTP server.
 
 ```js
-// app.js
+// src/app.js
 /**
  * Import dependencies
  */
-var express = require('express');
-var logger = require('morgan'); // Logs each server request to the console
-var bodyParser = require('body-parser'); // Takes information from POST requests and puts it into an object
-var methodOverride = require('method-override'); // Allows for PUT and DELETE methods to be used in browsers where they are not supported
-var mongoose = require('mongoose'); // Wrapper for interacting with MongoDB
-var path = require('path'); // File path utilities to make sure we're using the right type of slash (/ vs \)
+import express from 'express';
+import logger from 'morgan'; // Logs each server request to the console
+import bodyParser from 'body-parser'; // Takes information from POST requests and puts it into an object
+import methodOverride from 'method-override'; // Allows for PUT and DELETE methods to be used in browsers where they are not supported
+import mongoose from 'mongoose'; // Wrapper for interacting with MongoDB
+import path from 'path'; // File path utilities to make sure we're using the right type of slash (/ vs \)
 
 /**
  * Configure database
@@ -113,12 +112,11 @@ mongoose.connection.on('error', function() {
 /**
  * Configure app
  */
-var app = express(); // Creates an Express app
+let app = express(); // Creates an Express app
 app.set('port', process.env.PORT || 3000); // Set port to 3000 or the provided PORT variable
-app.set('views', path.join(__dirname, 'views')); // Set our views directory to be `/views`
+app.set('views', path.join(__dirname, '..', 'views')); // Set our views directory to be `/views` (in the app root, which is one level above)
 app.set('view engine', 'jade'); // Set our view engine to be Jade (so when we render these views, they are compiled with the Jade compiler)
-app.use(express.static(path.join(__dirname, 'public'))); // Set the static files directory - /public will be / on the frontend
-app.use('/vendor', express.static(path.join(__dirname, 'bower_components'))); // Map the /bower_components directory to /vendor - /bower_components/bootstrap will be /vendor/bootstrap on the frontend
+app.use(express.static(path.join(__dirname, '..', 'public'))); // Set the static files directory - /public will be / on the frontend
 app.use(logger('dev')); // Log requests to the console
 app.use(bodyParser.json()); // Parse JSON data and put it into an object which we can access
 app.use(methodOverride()); // Allow PUT/DELETE
@@ -127,14 +125,14 @@ app.use(methodOverride()); // Allow PUT/DELETE
  * Start app
  */
 app.listen(app.get('port'), function() {
-  console.log('App listening on port ' + app.get('port') + '!');
+  console.log(`App listening on port ${app.get('port')}!`);
 });
 ```
 
 If you run `node app` and visit http://localhost:3000, you'll see that we now have a nice little HTTP server set up.
 
 #### Jade
-If we look above, we'll see the line `app.set('view engine', 'jade');`.  What this does is tell Express that the files in the `views` directory should be compiled using the Jade. [Jade](http://jade-lang.com/) is a very popular templating language for Node.js, and it's pretty much a terser version of HTML:
+Taking a close look at the code, you may have noticed the line `app.set('view engine', 'jade');`.  What this does is tell Express that the files in the `views` directory should be compiled using the Jade template engine. [Jade](http://jade-lang.com/) is a very popular templating language for Node.js, and it's pretty much a terser version of HTML:
 
 ```jade
 doctype html
@@ -148,33 +146,41 @@ html
     p This is my first Jade template!
 ```
 
-We'll go into more depth later, when we write the frontend code.
+We'll go into more depth later, when we write the code for the frontend.
 
 ### Creating a Model
-Now that we've got the basics of our app setup, we need to create a model for the Todos. This model will define the shape of our documents (analagous to rows in SQL), and Mongoose will use this model to create a collection in MongoDB (analagous to a table in SQL) for the Todos.  To create our Todo model, in the `models` directory create a new file called `Todo.js` with this code:
+Now that we've got the basics of our app setup, we need to create a model for the Todos. This model will define the shape of our documents (analagous to rows in SQL), and Mongoose will use this model to create a collection in MongoDB (analagous to a table in SQL) for the Todos.  To create our Todo model, in the `src/models` directory create a new file called `Todo.js` with this code:
 
 ```js
-// models/Todo.js
-var mongoose = require('mongoose');
+// src/models/Todo.js
+import mongoose from 'mongoose';
 // Create a schema for the Todo object
-var todoSchema = new mongoose.Schema({
+let todoSchema = new mongoose.Schema({
   text: String
 });
-// Expose the model so that it can be imported and used in the controller
-module.exports = mongoose.model('Todo', todoSchema);
+// Expose the model so that it can be imported and used in the controller (to search, delete, etc)
+export default mongoose.model('Todo', todoSchema);
 ```
 
 ### Creating a Controller
-Now, we need to create a controller. This controller will handle the routes of our Todos REST API (e.g. GET /todos, POST /todos). Create a new file, `main.js`, in the `controllers` directory with this code:
+Now, we need to create a controller. This controller will handle the routes of our Todos REST API (e.g. GET /todos, POST /todos). Create a new file, `main.js`, in the `src/controllers` directory with this code:
 
 ```js
-// controllers/main.js
-var Todo = require('../models/Todo'); // Import the Todo model so we can query the DB
+// src/controllers/main.js
+import Todo from '../models/Todo'; // Import the Todo model so we can query the DB
 
-var mainController = {
+let mainController = {
+  getIndex: (req, res) => {
+    res.render('index'); // Compiles the file named "index" in the views directory (`/views`) using the view engine (Jade).
+    // We'll create this Jade file later
+  },
+  // Allows us to access our Angular templates (more on that later)
+  getTemplate: (req, res) => {
+    res.render('templates/' + req.params.template);
+  },
   // This gets all Todos in the collection and sends it back in JSON format
-  getAllTodos: function(req, res) {
-    Todo.find({}, function(err, todos) {
+  getAllTodos: (req, res) => {
+    Todo.find({}, (err, todos) => {
       if (err) {
         // Send the error to the client if there is one
         return res.send(err);
@@ -183,16 +189,16 @@ var mainController = {
       res.json(todos);
     });
   },
-  postNewTodo: function(req, res) {
+  postNewTodo: (req, res) => {
     // This creates a new todo using POSTed data (in req.body)
     Todo.create({
       text: req.body.text,
       done: false
-    }, function(err, todo) {
+    }, (err, todo) => {
       if (err) {
         return res.send(err);
       }
-      Todo.find({}, function(err, todos) {
+      Todo.find({}, (err, todos) => {
         if (err) {
           return res.send(err);
         }
@@ -201,14 +207,14 @@ var mainController = {
       });
     });
   },
-  deleteTodo: function(req, res) {
+  deleteTodo: (req, res) => {
     Todo.remove({
       _id: req.params.id
-    }, function(err, todo) {
+    }, (err, todo) => {
       if (err) {
         return res.send(err);
       }
-      Todo.find({}, function(err, todos) {
+      Todo.find({}, (err, todos) => {
         if (err) {
           return res.send(err);
         }
@@ -218,21 +224,21 @@ var mainController = {
   }
 }
 
-// Allow the controller to be imported into the main app.js file
-module.exports = mainController;
+export default mainController;
 ```
+
 ### Creating the Routes
 Back in the main app file, `app.js`, we need to define our API routes. First, we need to import our route handlers ("controllers"). Right under the dependencies, add the main controller:
 
 ```js
-// app.js
+// src/app.js
 ...
-var path = require('path'); // File path utilities to make sure we're using the right type of slash (/ vs \)
+import path from 'path' // File path utilities to make sure we're using the right type of slash (/ vs \)
 
 /**
  * Import controllers
  */
-var mainController = require('./controllers/main');
+import mainController from './controllers/main';
 
 /**
  * Configure database
@@ -240,18 +246,21 @@ var mainController = require('./controllers/main');
 ...
 ```
 
-Now, we need to configure the routes. Below, under the "Configure App" section, add this:
+Now, we need to configure the routes. Below, under the "Configure app" section (where we have all the `app.set` and `app.use` code), add this:
 
 ```js
+// src/app.js
 ...
 app.use(methodOverride()); // Allow PUT/DELETE
 
 /**
  * Configure routes
  */
+app.get('/', mainController.getIndex);
+app.get('/templates/:template', mainController.getTemplate);
 app.get('/todos', mainController.getAllTodos);
 app.post('/todos', mainController.postNewTodo);
-app.delete('/todos/:id', mainController.deleteTodo);
+app.delete('/todos', mainController.deleteAllTodos);
 
 /**
  * Start app
@@ -266,138 +275,157 @@ If you run `node app` and visit http://localhost:3000/todos, you should see an e
 ## Frontend
 Our API has been built.  Now, we need a way to interact with it on the frontend.  To do so, we can use Angular!
 
-Let's define our index page route handler in the main controller (`/controllers/main.js`):
-
-```js
-// controllers/main.js
-...
-var mainController = {
-  getIndex: function(req, res) {
-    res.render('index'); // Compiles the file named "index" in the views directory (`/views`) using the view engine (Jade).
-  },
-  // This gets all Todos in the collection and sends it back in JSON format
-  getAllTodos: function(req, res) {
-...
-```
-
-Now, we can use this new route handler in our app.  In the root `app.js`, add this:
-
-```js
-// app.js
-...
-/**
- * Configure routes
- */
-app.get('/', mainController.getIndex);
-...
-```
-
-If you run `node app` now and visit http://localhost:3000, you should now see a blank page.  Let's begin with our Angular setup.  Open up `/public/js/app.js` and add this code:
-
 ### Angular Setup
+Let's begin by creating a service to interact with our API.  Create a file in `/webpack/js` called `TodoService.js`.  This will servee as a wrapper for the Angular 2's HTTP function.  Put the following code inside:
 
 ```js
-// public/js/app.js
-angular
-  .module('todoApp', []); // Creates an angular app called 'todoApp' with no dependencies ([])
-  
-// This is our controller function, which uses the $http service (for AJAX)
-function MainCtrl($http) {
-  // We use `this` because so we can use the controllers as instances
-  // We'll set vm to the controller this value because the HTTP callback this value is different from the controller this value
-  var vm = this;
-  vm.formData = {};
+// webpack/js/TodoService.js
+import {Inject} from 'angular2/core'; // Allows us to inject a dependency into a module that's not a component
+import {Http, Headers} from 'angular2/http';
+import 'rxjs/add/operator/map' // Allows us to map the HTTP response from raw to JSON format
 
-  // Get all todos on page landing
-  $http.get('/todos')
-    .success(function(data) {
-      vm.todos = data;
-    })
-    .error(function(data) {
-      console.log("Error: " + data);
-    });
-
-  // Notice the similarity in method names on the front and back-end.
-  vm.postNewTodo = function() {
-    $http.post('/todos', vm.formData)
-      .success(function(data) {
-        vm.formData = {}; // Clear the form
-        vm.todos = data; // Remember, in our postNewTodo route handler we return all todos in JSON format
-      })
-      .error(function(data) {
-        console.log("Error: " + data);
+class TodoService {
+  constructor(http) {
+    this.http = http; // http is an instance of the main Http class
+  }
+  getAllTodos() {
+    return this.http.get('/todos')
+      .map((res) => {
+        return JSON.parse(res._body);
       });
-  };
-
-  vm.deleteTodo = function(id) {
-    $http.delete('/todos/' + id)
-      .success(function(data) {
-        vm.todos = data;
-      })
-      .error(function(data) {
-        console.log("Error: " + data);
+  }
+  postNewTodo(data) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json'); // Set JSON header so that data is parsed by bodyParser on the backend
+    return this.http.post('/todos', JSON.stringify(data), {
+      headers: headers
+    }).map((res) => {
+        return JSON.parse(res._body);
       });
-  };
+  }
+  deleteTodo(id) {
+    return this.http.delete('/todos/' + id)
+      .map((res) => {
+        return JSON.parse(res._body);
+      });
+  }
 }
 
-angular
-  .module('todoApp') // Tell Angular we are setting a controller on this app
-  .controller('MainCtrl', MainCtrl);
+// Declares that Http should be injected each time a new instance of TodoService is created
+TodoService.parameters = [new Inject(Http)];
 
+export {TodoService}
+```
+Now, we need to define a component.  This will hold our main frontend logic and is, to some extent analagous to a controller in Angular 1, although it does function as a view as well.  Create a file in `webpack/js` called `TodoComponent.js` with the following code:
+
+```js
+// webpack/js/TodoComponent.js
+import {Component, View} from 'angular2/core'; // Import Component and View constructor (for metadata)
+import {HTTP_PROVIDERS} from 'angular2/http'; // We're using http in our TodoService, but we can only specify providers in the component
+import {TodoService} from './TodoService'
+
+class TodoComponent {
+  constructor(todoService) {
+    this.todos = [];
+    this.todoData = {
+      text: ''
+    };
+    this.todoService = todoService;
+    this.todoService.getAllTodos()
+      // Rxjs, we subscribe to the response
+      .subscribe((res) => {
+        this.todos = res;
+      });
+  }
+  createTodo() {
+    this.todoService.postNewTodo(this.todoData)
+      .subscribe((res) => {
+        this.todos = res;
+        this.todoData.text = '';
+      });
+  }
+  deleteTodo(id) {
+    this.todoService.deleteTodo(id)
+      .subscribe((res) => {
+        this.todos = res;
+      })
+  }
+};
+
+TodoComponent.annotations = [
+  new Component({
+    selector: 'todo-app', // Tag to show app
+    providers: [TodoService, HTTP_PROVIDERS] // Lets Angular know about TodoService and Http
+  }),
+  new View({
+    templateUrl: 'templates/TodoComponent' // Our template, we'll create this next
+  })
+];
+
+TodoComponent.parameters = [[TodoService]];
+
+export {TodoComponent};
 ```
 
 ### Jade View
-Open up `views/index.jade` and put the following:
+In the `views/templates` directory, create a file called `TodoComponent.jade` and put the following code inside:
+
+```jade
+// views/templates/TodoComponent.jade
+.container
+  .jumbotron.text-center
+    h1 Todos&nbsp;
+      span.label.label-info {{todos.length}}
+  .row
+    .col-sm-6.col-sm-offset-3
+      table.table.table-bordered
+        thead
+          tr
+            th.text-center Todos
+        tbody
+          tr(*ngFor="var todo of todos")
+            td
+              input(type='checkbox' on-click='deleteTodo(todo._id)' bind-checked="false")
+              | &nbsp;&nbsp;
+              | {{todo.text}}
+  .row
+    .col-sm-6.col-sm-offset-3
+      form(on-ngSubmit='createTodo()')
+        .form-group
+          input.form-control.input-lg.text-center(type='text' placeholder='What to do next?' bindon-ngModel='todoData.text' required)
+        .form-group.text-center
+          br
+          button.btn.btn-success.btn-lg(type='submit') Do Something
+```
+
+Not, create a file in `views` called `index.jade` and put the following:
 
 ```jade
 // views/index.jade
 doctype html
-// This tells Angular that this area of the HTML is the todoApp defined in public/app.js
-html(ng-app='todoApp')
+html
   head
-    title Todo App
+    title Angular 2/MEAN Stack Todo App
+    meta(name='description' content='A small todo app written using the Angular 2 beta and the rest of the MEAN stack')
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width,initial-scale=1.0')
-    link(rel='stylesheet' href='/vendor/bootstrap/dist/css/bootstrap.min.css')
-  // This tells Angular that MainCtrl should control the user actions done in this area
-  // MainCtrl as vm creates an instace of MainCtrl called "vm" - the view model (although you can call it anything)
-  body(ng-controller='MainCtrl as vm')
-    // .container is Jade shorthand for <div class='container'></div>
-    .container
-      .jumbotron.text-center
-        h1 Todos&nbsp;
-          span.label.label-info {{vm.todos.length}}
-      .row
-        .col-sm-6.col-sm-offset-3
-          table.table.table-bordered
-            thead
-              tr
-                th.text-center Todos
-            tbody
-              tr(ng-repeat='todo in vm.todos')
-                td
-                  input(type='checkbox' ng-click='vm.deleteTodo(todo._id)')
-                  | &nbsp;&nbsp;
-                  | {{todo.text}}
-      .row
-        .col-sm-6.col-sm-offset-3
-          form(ng-submit='vm.postNewTodo()')
-            .form-group
-              // Bind this input to formData.text in the controller
-              input.form-control.input-lg.text-center(type='text' placeholder='What to do next?' ng-model='vm.formData.text')
-            .form-group.text-center
-              br
-              button.btn.btn-success.btn-lg(type='submit') Do Something
-
-
-    script(src='/vendor/jquery/dist/jquery.min.js')
-    script(src='/vendor/angular/angular.min.js')
-    script(src='/js/app.js')
+    style.
+      /* Initial CSS to prevent FOUC (Flash of Unstyled Content) */
+      .loading {
+        padding-top: 15px;
+        font-size: 36px;
+        font-family: Arial;
+        text-align: center;
+      }
+  body
+    todo-app
+      .loading Loading...
+    script(src="/bundle.js")
 ```
 ## Conclusion
 We now have a rudimentary Todo app with a Node.js/Express server and Angular frontend.  Let me know what you make of it in the comments!
 
-Also, the full source is viewable here: https://github.com/nathanhleung/MEAN-todo
+Also, the full source is viewable here: [Angular 2 Todo App](https://github.com/nathanhleung/angular2-todo-app)
 
 ## Acknowledgments
 This was based on [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular)'s great blog post, and the architecture is based on [sahat](https://github.com/sahat)'s [Hackathon Starter](https://github.com/sahat/hackathon-starter)
