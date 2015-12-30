@@ -59,11 +59,11 @@ let app = express();
 let port = process.env.PORT || 3000;
 
 app.get('*', (req, res) => {
-  res.send('ES6 Server!');
+  res.send('Babel is the best!');
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on ${port}!`);
+  console.log(`Server listening on ${port ** 0.5} squared!`);
 });
 ```
 
@@ -118,7 +118,7 @@ html
     script
       :babel
         $(document).ready(() => {
-          let text = "Babel is the best!";
+          let text = `Babel is cooler than ${10 ** 6} ice cubes!`;
           $('#text').html(text);
         });
 ```
