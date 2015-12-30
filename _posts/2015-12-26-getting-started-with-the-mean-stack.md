@@ -126,7 +126,7 @@ There are a lot of dependencies.  If you're really interested, here's why we nee
 * webpack - Webpack packages and processes frontend files
 
 ## Setting Up Our Environent
-In order to use Babel, we need to define which future version of Javascript we're using. Babel supports ES6, JSX (React), ES7 and other future version of Javascript, but we're going to stick with the closest future release, ES6 (aka ES2015).  To let Babel know of that, we need to create a `.babelrc` file in our app root (the `todoapp` directory) with the following content:
+In order to use Babel, we need to define which future version of Javascript we're using. Babel supports ES6, JSX (React), ES7 and other upcoming versions of Javascript, but we're going to stick with the nearest future release, ES6 (aka ES2015).  To let Babel know of that, we need to create a `.babelrc` file in our app root (the `todoapp` directory) with the following content:
 
 ```js
 // .babelrc
