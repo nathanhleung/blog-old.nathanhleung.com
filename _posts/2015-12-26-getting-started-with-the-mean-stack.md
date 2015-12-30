@@ -6,6 +6,7 @@ comments: true
 tags: [nodejs]
 ---
 We'll be using the MEAN stack today with Angular 2.0 to create a rudimentary todo app.  This todo app will be able to:
+
 * Store todos in a MongoDB database
 * Access those todos via a REST API built with Express
 * Display those todos in a single page application built with the latest Angular 2.0 beta (beta.0).
@@ -25,7 +26,9 @@ The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js]
 
 We'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel](https://babeljs.io/) transpiler, and we'll package our frontend components using [Webpack](https://webpack.github.io/) (which allows `require`s in our frontend code).
 
-This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x). Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing Angular 1.x, so our app will be written with the latest Angular 2 beta (beta.0). Let's begin!
+This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x).
+
+Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing Angular 1.x, so our app will be written with the latest Angular 2 beta (beta.0). Let's begin!
 
 ## File Structure
 Create a new directory called `todoapp` with the following structure:
