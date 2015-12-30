@@ -17,18 +17,18 @@ Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
 ![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
 
 ## MEAN Stack Recap
-The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).  Each of these components can be used to make an app in the common model-view-controller pattern.
+The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).  Each of these components can be used to make an app in the common [model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
 
 * MongoDB is a database (the "M")
 * Express.js provides routing support (i.e. mapping URLs to the correct destination/action). It's the "C" in MVC.
-* Angular is in theory a "MV*" framework but lately (Angular 2.0) it's been looking a lot like React, a view framework. In our case, we're using Angular as the "V" in our full MEAN MVC.
+* Angular is in theory a "MV*" framework but lately (Angular 2.0) it's been looking a lot like [React](https://facebook.github.io/react/), a view framework. In our case, we're using Angular as the "V" in our full MEAN MVC.
 * Node.js is the engine that allows us to run Javascript code on the server in the first place.
 
 We'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel](https://babeljs.io/) transpiler, and we'll package our frontend components using [Webpack](https://webpack.github.io/) (which allows `require`s in our frontend code).
 
 This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x).
 
-Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing Angular 1.x, so our app will be written with the latest Angular 2 beta (beta.0). Let's begin!
+Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing [Angular 1.x](https://angularjs.org/), so our app will be written with the latest Angular 2 beta (beta.0). Let's begin!
 
 ## File Structure
 Create a new directory called `todoapp` with the following structure:
@@ -44,6 +44,7 @@ todoapp
 --- js // Our frontend JS
 ```
 
+## Dependencies
 To start your app, create a file called `package.json` in the root app directory (`todoapp`) with the following content:
 
 ```js
@@ -94,12 +95,35 @@ To start your app, create a file called `package.json` in the root app directory
 
 This file tells [NPM](https://www.npmjs.com) what dependencies we need, and sets up a few helper scripts we can use to compile our ES6 and package our frontend files.
 
-## Dependencies
-### Node.js
-We've defined our Node dependencies in `package.json`. Now, we need to install them.  To do so, run `npm install` - NPM will create a new directory called `node_modules` and put our dependencies in there.
+To install the dependencies, run `npm install` - NPM will create a new directory called `node_modules` and put our dependencies in there.
 
-### Frontend
-What about our frontend dependencies? Don't worry, we've already installed them with our Node dependencies.  If you take a closer look at our `package.json`, you'll see that they're listed (`angular2` and `bootstrap`, to name a few).
+### Dependency Overview
+There are a lot of dependencies.  If you're really interested, here's why we need all of them:
+
+* angular2 - Well, we're making an Angular 2 app
+* body-parser - Parse form data and allow it to be accessed by the server
+* bootstrap - Base CSS styles
+* es6-promise - Angular 2 dependency
+* es6-shim - Another Angular dependency
+* express - Our server
+* jade - Template engine for terse HTML
+* method-override - Allows PUT and DELETE requests on old browsers
+* mongoose - MongoDB wrapper
+* morgan - Request logger
+* reflect-metadata - Another Angular dependency
+* rxjs - Another Angular dependency
+* systemjs - Another Angular dependency
+* zone.js - Another Angular dependency
+* babel-cli - Allows us to transpile ES6 via `babel` in npm scripts
+* babel-core - To transpile files passed via babel-loader
+* babel-loader - Webpack Babel loader, so that webpack can transpile
+* babel-preset-es2015 - ES2015 Babel preset
+* css-loader - Allows Webpack to parse `@import` and `url()` in CSS
+* file-loader - Allows Webpack to load font files (e.g. in CSS)
+* script-loader - Allows Webpack to inline JS without parsing `require`s
+* style-loader - Allows Webpack to link CSS sheets in HTML files
+* uglify-loader - Webpack loader which minifies JS
+* webpack - Webpack packages and processes frontend files
 
 ## Setting Up Our Environent
 In order to use Babel, we need to define which future version of Javascript we're using. Babel supports ES6, JSX (React), ES7 and other future version of Javascript, but we're going to stick with the closest future release, ES6 (aka ES2015).  To let Babel know of that, we need to create a `.babelrc` file in our app root (the `todoapp` directory) with the following content:
