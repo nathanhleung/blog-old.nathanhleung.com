@@ -1,12 +1,11 @@
 ---
 layout: post
-title: Configuring Babel for Node.js
+title: Configuring Babel 6.0
 author: Nathan Leung
 comments: true
 tags: [nodejs]
 ---
-[Babel](https://babeljs.io/) is a Javascript transpiler that allows you to write ES6/ES2015 (and beyond) code.  Babel transpiles
-files into vanilla ES5 which can be used in any major browser (or Node.js).  Here's how to get started.
+Today we'll be configuring [Babel](https://babeljs.io/) 6.0, a Javascript transpiler that allows you to write ES6 (and beyond) code.  Babel transpiles files into vanilla ES5 which can be used in any major browser (or Node.js).  Here's how to get started.
 
 ## Preset
 First, you need to install a preset.  Previously, Babel came with transpilers (e.g. React, ES2015), but with the release of [Babel 6.0](https://babeljs.io/blog/2015/10/29/6.0.0/), the API was changed such that the developer now has to specify which transpilers should be used.
