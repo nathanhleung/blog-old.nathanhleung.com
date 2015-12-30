@@ -5,7 +5,7 @@ author: Nathan Leung
 comments: true
 tags: [nodejs]
 ---
-We'll be using the MEAN today with Angular 2.0 to create a rudimentary todo app.  This todo app will be able to store todos in a MongoDB database, access those todos via a REST API built with Express, and display those todos in a single page application built with the latest Angular 2.0 beta (beta.0).
+We'll be using the MEAN stack today with Angular 2.0 to create a rudimentary todo app.  This todo app will be able to store todos in a MongoDB database, access those todos via a REST API built with Express, and display those todos in a single page application built with the latest Angular 2.0 beta (beta.0).
 
 ## The Final Product
 Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
