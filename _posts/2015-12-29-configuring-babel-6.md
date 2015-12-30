@@ -93,7 +93,7 @@ gulp.task('default', () => {
 ```
 
 ## Jade (with Express)
-To use the `:babel` filter in Jade with Express, run `npm install jade-babel --save`.  In your `app.js` (ES6 of course), add this:
+To use the `:babel` filter in Jade with Express, run `npm install jade-babel --save`.  In your `app.es6`, add this:
 
 ```js
 // app.es6
@@ -103,7 +103,25 @@ import babel from 'jade-babel';
 jade.filters.babel = babel();
 app.set('view engine', 'jade');
 ```
-Now, when you call `res.render`, the code in the `:babel` filter in your Jadet templates will be transpiled.
+Now, when you call `res.render`, the code in the `:babel` filter in your Jade templates will be transpiled.
+
+```jade
+doctype html
+html
+  head
+    title Jade Example
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width,initial-scale=1.0')
+  body
+    p#text
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script
+      :babel
+        $(document).ready(() => {
+          let text = "Babel is the best!";
+          $('#text').html(text);
+        });
+```
 
 ## Conclusion
-Hope this helped you configure your Babel installation and begin writing ES6 today!
+ES6 is fast approaching, and using Babel is a great way to future-proof your apps.  Thanks for reading!
