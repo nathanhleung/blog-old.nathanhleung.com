@@ -8,11 +8,16 @@ tags: [nodejs]
 If you've ever wanted to learn the [only real dev language](https://www.reddit.com/r/ProgrammerHumor/comments/2skwgu/for_everyone_who_keeps_claiming_that_nodejs_is/), you're in the right place! We'll be using the MEAN stack today with Angular 2.0 to create a rudimentary todo app.
 
 ## What We'll Be Building
+
 ![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
+
+## What We're Using
 
 A quick review: MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/). MongoDB is a database, Express.js provides routing support (i.e. mapping URLs to the correct destination/action), AngularJS allows for a model-view-controller architecture on the client side (in this case, it allows the client to communicate with the Express.js-based API), and Node.js is the engine that allows us to run Javascript code on the server in the first place.
 
-This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x). Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing Angular 1.x, so our app will be written with the latest Angular 2 beta. And just to future-proof everything, we'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel](https://babeljs.io/) transpiler. Let's begin!
+We'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel](https://babeljs.io/) transpiler, and we'll package our frontend components using [Webpack](https://webpack.github.io/).
+
+This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x). Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing Angular 1.x, so our app will be written with the latest Angular 2 beta. Let's begin!
 
 ## File Structure
 Create a new directory called `todoapp` with the following structure:
@@ -31,6 +36,7 @@ todoapp
 To start your app, create a file called `package.json` in the root app directory (`todoapp`) with the following content:
 
 ```js
+// package.json
 {
   "name": "todoapp",
   "version": "1.0.0",
@@ -79,10 +85,58 @@ This file tells [NPM](https://www.npmjs.com) what dependencies we need, and sets
 
 ## Dependencies
 ### Node.js
-We've defined our Node dependencies in `package.json`. Now, we need to install them.  Run `npm install`. NPM will create a new directory called `node_modules` and put our dependencies in there.
+We've defined our Node dependencies in `package.json`. Now, we need to install them.  To do so, run `npm install` - NPM will create a new directory called `node_modules` and put our dependencies in there.
 
 ### Frontend
-What about our frontend dependencies? Don't worry, we've already installed them with our Node dependencies.  If you take a closer look at our `package.json`, you'll see that we've also installed them - `angular2` and `bootstrap`, to name a few.
+What about our frontend dependencies? Don't worry, we've already installed them with our Node dependencies.  If you take a closer look at our `package.json`, you'll see that they're listed (`angular2` and `bootstrap`, to name a few).
+
+## Setting Up Our Environent
+In order to use Babel, we need to define which future version of Javascript we're using. Babel supports ES6, JSX (React), ES7 and other future version of Javascript, but we're going to stick with the closest future release, ES6 (aka ES2015).  To let Babel know of that, we need to create a `.babelrc` file in our app root (the `todoapp` directory) with the following content:
+
+```js
+// .babelrc
+{
+  "presets": ["es2015"]
+}
+```
+
+We also need to define our Webpack config, which we'll write in ES6. Create a new file, in the root app directory as well, called `webpack.config.babel.js` with the following contents:
+
+```js
+import path from 'path'; // Join paths with the right type of slash
+
+let config = {
+  entry: path.join(__dirname, 'webpack', 'index.js'), // We'll create this file later, when we write the frontend code
+  output: {
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/, // Transpile all .js files from ES6 to ES5
+        loaders: ['babel-loader']
+      },
+      {
+        test: /\.css$/, // Use the style-loader for all .css files
+        loaders: ['style', 'css']
+      },
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, // Use the file-loader for fonts
+        loaders: ['file-loader']
+      }
+    ],
+    postLoaders: [
+      {
+        test: /\.js$/, // Minify all .js files
+        loaders: ['uglify-loader']
+      }
+    ]
+  }
+};
+
+export default config;
+```
 
 ## Backend
 ### Configuring Express
@@ -129,7 +183,7 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-If you run `node app` and visit http://localhost:3000, you'll see that we now have a nice little HTTP server set up.
+We can transpile our code to ES5 via `npm run babel`, which will output to the `lib` directory.  Running `node lib/app` will  start our little HTTP server, which you can visit at http://localhost:3000.  Also, if you want your code  to be continuously compiled on changes, run `npm run babel:w`, which will run the same Babel build script but will also watch for changes.
 
 #### Jade
 Taking a close look at the code, you may have noticed the line `app.set('view engine', 'jade');`.  What this does is tell Express that the files in the `views` directory should be compiled using the Jade template engine. [Jade](http://jade-lang.com/) is a very popular templating language for Node.js, and it's pretty much a terser version of HTML:
@@ -228,7 +282,7 @@ export default mainController;
 ```
 
 ### Creating the Routes
-Back in the main app file, `app.js`, we need to define our API routes. First, we need to import our route handlers ("controllers"). Right under the dependencies, add the main controller:
+Back in the main app file, `src/app.js`, we need to define our API routes. First, we need to import our route handlers ("controllers"). Right under the dependencies, add the main controller:
 
 ```js
 // src/app.js
@@ -270,12 +324,12 @@ app.delete('/todos', mainController.deleteAllTodos);
 
 How does this work? Here's an example: when you `GET` `/todos` in your browser, Express will execute the middleware above (logging, body parsing, method overriding) and then call the `mainController.getAllTodos` function with `(req, res)` as arguments.  The `getAllTodos` function will query the database for all the todos and send them to the client in JSON format.
 
-If you run `node app` and visit http://localhost:3000/todos, you should see an empty array (since we have no Todos).
+Compiling the code again (`npm run babel`) and running `node lib/app` will start up our server again, however this time you can visit http://localhost:3000/todos and see our list of todos (currently empty).
 
 ## Frontend
 Our API has been built.  Now, we need a way to interact with it on the frontend.  To do so, we can use Angular!
 
-### Angular Setup
+### Creating an Angular 2 Service
 Let's begin by creating a service to interact with our API.  Create a file in `/webpack/js` called `TodoService.js`.  This will servee as a wrapper for the Angular 2's HTTP function.  Put the following code inside:
 
 ```js
@@ -316,6 +370,7 @@ TodoService.parameters = [new Inject(Http)];
 
 export {TodoService}
 ```
+### Creating an Angular 2 Component
 Now, we need to define a component.  This will hold our main frontend logic and is, to some extent analagous to a controller in Angular 1, although it does function as a view as well.  Create a file in `webpack/js` called `TodoComponent.js` with the following code:
 
 ```js
@@ -366,9 +421,42 @@ TodoComponent.parameters = [[TodoService]];
 
 export {TodoComponent};
 ```
+### Bootstrap
+In `webpack/js`, create a new file called `boot.js` with the following contents:
 
-### Jade View
-In the `views/templates` directory, create a file called `TodoComponent.jade` and put the following code inside:
+```js
+// webpack/js/boot.js
+import {bootstrap} from 'angular2/platform/browser'; // Angular magic to bootstrap the application in a web browser
+import {TodoComponent} from './TodoComponent';
+
+let boot = document.addEventListener('DOMContentLoaded', () => {
+  bootstrap(TodoComponent);
+});
+
+// Expose boot so it can be required by webpack.
+module.exports = boot;
+```
+### Webpack Index
+Now, we can put everything in a unified webpack file.  Create a new file in `webpack` called `index.js` with the following content:
+
+```js
+// webpack/index.js
+require('bootstrap/dist/css/bootstrap.min.css')
+
+// Import modules without parsing with script-loader,
+// !! to override all loaders
+require('!!script!angular2/bundles/angular2-polyfills.min.js');
+require('!!script!rxjs/bundles/Rx.umd.min.js');
+require('!!script!angular2/bundles/angular2-all.umd.min.js');
+
+// Import boot, resolve imports/requires, and pass through Babel
+require('./js/boot');
+```
+
+The `!!script!` is a special flag that will inline the script without using any loaders, equivalent to using a `<script>` tag.  Webpack will use the `index.js` file to create a new file, `bundle.js`, with all the code bundled up and minified.
+
+### Jade TodoComponent Template
+Now that we've gotten our frontend Javascript finished, we need to create our HTML.  In the `views/templates` directory, create a file called `TodoComponent.jade` and put the following code inside:
 
 ```jade
 // views/templates/TodoComponent.jade
@@ -398,6 +486,7 @@ In the `views/templates` directory, create a file called `TodoComponent.jade` an
           button.btn.btn-success.btn-lg(type='submit') Do Something
 ```
 
+### Main Jade Template
 Not, create a file in `views` called `index.jade` and put the following:
 
 ```jade
@@ -422,10 +511,14 @@ html
       .loading Loading...
     script(src="/bundle.js")
 ```
-## Conclusion
-We now have a rudimentary Todo app with a Node.js/Express server and Angular frontend.  Let me know what you make of it in the comments!
 
-Also, the full source is viewable here: [Angular 2 Todo App](https://github.com/nathanhleung/angular2-todo-app)
+### Compiling the Frontend Resources
+Let's compile everything with Webpack now.  Running `npm run webpack` will create a bundle file with all of our Angular code and dependencies packaged up and ready for deployment.  If you run `node lib/app` and visit http://localhost:3000, you should now see this:
+
+![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
+
+## Conclusion
+We now have a rudimentary Todo app with a Node.js/Express server and Angular frontend.  Let me know what you make of it in the comments!  There's a demo online on at [Angular 2 Todo App Demo](https://angular2-todo-app.herokuapp.com/), and the full source is viewable at [Angular 2 Todo App Source](https://github.com/nathanhleung/angular2-todo-app)
 
 ## Acknowledgments
 This was based on [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular)'s great blog post, and the architecture is based on [sahat](https://github.com/sahat)'s [Hackathon Starter](https://github.com/sahat/hackathon-starter)
