@@ -17,7 +17,7 @@ Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
 ![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
 
 ## MEAN Stack Recap
-The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).
+The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).  Each of these components can be used to make an app in the common model-view-controller pattern.
 
 * MongoDB is a database (the "M")
 * Express.js provides routing support (i.e. mapping URLs to the correct destination/action). It's the "C" in MVC.
