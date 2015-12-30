@@ -69,7 +69,7 @@ app.listen(port, () => {
 
 ```
 $ node app
-=> Server listening on port 3000!
+=> Server listening on port 54.772255750516614 squared!
 ```
 
 ## Gulp
