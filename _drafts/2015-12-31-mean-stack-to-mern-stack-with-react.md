@@ -1,34 +1,24 @@
 ---
 layout: post
-title: Getting Started with the MEAN Stack and Angular 2.0
+title: Going from MEAN to MERN with React and ES6
 author: Nathan Leung
 comments: true
 tags: [nodejs]
 ---
-We'll be using the MEAN stack today with Angular 2.0 to create a rudimentary todo app.  This todo app will be able to:
-
-* Store todos in a MongoDB database
-* Access those todos via a REST API built with Express
-* Display those todos in a single page application built with the latest Angular 2.0 beta (beta.0).
+We [recently made](https://www.nathanhleung.com/article/2015/12/26/getting-started-with-the-mean-stack/) a rudimentary [todo app](https://angular2-todo-app.herokuapp.com/) with Angular 2.0 and the MEAN stack. Today, we'll be transforming that app into a MERN stack app using Facebook's hot new framework, [React](https://facebook.github.io/react/).
 
 ## The Final Product
-Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
+Demo: [React ES6 Todo App]
 
-![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
+## The MERN Stack
+It doesn't have as nice of a name as MEAN, but it does its job well.  We've got:
 
-## MEAN Stack Recap
-The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).  Each of these components can be used to make an app in the common [model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
+* [MongoDB](https://www.mongodb.org/), our database (the "model")
+* [Express.js](http://expressjs.com/), our route handlers and server config (the "controller")
+* [React](https://facebook.github.io/react/), our frontend (the "view")
+* [Node.js](https://nodejs.org/), our engine
 
-* MongoDB is a database (the "M")
-* Express.js provides routing support (i.e. mapping URLs to the correct destination/action). It's the "C" in MVC.
-* Angular is in theory a "MV*" framework but lately (Angular 2.0) it's been looking a lot like [React](https://facebook.github.io/react/), a view framework. In our case, we're using Angular as the "V" in our full MEAN MVC.
-* Node.js is the engine that allows us to run Javascript code on the server in the first place.
-
-We'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel](https://babeljs.io/) transpiler, and we'll package our frontend components using [Webpack](https://webpack.github.io/) (which allows `require`s in our frontend code).
-
-This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x).
-
-Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing [Angular 1.x](https://angularjs.org/), so our app will be written with the latest Angular 2 beta (beta.0). Let's begin!
+Just like last  time, we'll write the entire app in ES6 using [Babel](https://babeljs.io/), and we'll package our frontend using [Webpack](https://webpack.github.io/).
 
 ## File Structure
 Create a new directory called `todoapp` with the following structure:
@@ -39,7 +29,6 @@ todoapp
 --- controllers // Controllers directory
 --- models // Mongoose models directory
 - views // Our Jade views
---- templates // Our Angular templates
 - webpack // Our frontend code
 --- js // Our frontend JS
 ```
