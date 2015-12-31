@@ -1,3 +1,3 @@
 # Blog
 
-Visit nathanhleung.com for good content!
+Visit [nathanhleung.com](https://www.nathanhleung.com) for good content!
