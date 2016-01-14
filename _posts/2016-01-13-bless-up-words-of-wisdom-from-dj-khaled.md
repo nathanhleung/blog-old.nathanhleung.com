@@ -5,6 +5,7 @@ author: Nathan Leung
 comments: true
 tags: []
 ---
+> Originally written for publication in the [WHS Trojan Times](http://whstrojantimes.wix.com/ttimes)
 
 DJ Khaled: world-renowned producer and artist, or enlightened zen master? With his insightful witticisms taking Snapchat by storm, it can be hard to tell.
 
