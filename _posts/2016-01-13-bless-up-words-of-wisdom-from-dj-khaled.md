@@ -26,4 +26,4 @@ Despite being seemingly facetious, his witticisms strike a chord with the large 
 
 With a little bit of investigation, it becomes clear that Khaled’s offbeat Stories are more than they seem to be. They  reveal hidden facets of a large and growing subset of the population, millennials, and Khaled’s antics are an idealized realization of that population’s tendencies and aspirations. Most importantly, though, is that he tells viewers of his Stories how they can realize that same dream, through his useful and insightful keys to success. Here’s another one: add him @djkhaled305!
 
-Photo Credits (Fair Use): https://usatsneakhype.files.wordpress.com/2015/12/dj-khaled-loast-at-sea.jpg
+Photo Credits (Fair Use): [SneakHype.com](https://usatsneakhype.files.wordpress.com/2015/12/dj-khaled-loast-at-sea.jpg)
