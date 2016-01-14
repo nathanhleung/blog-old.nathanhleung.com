@@ -5,6 +5,8 @@ author: Nathan Leung
 comments: true
 tags: [misc]
 ---
+> Originally written for publication in the [WHS Trojan Times](http://whstrojantimes.wix.com/ttimes)
+
 If you've ever opened Snapchat and took a picture, then swiped right, chances are that you’ve seen one of their geofilters.
 Ever wondered how to make one?
 
