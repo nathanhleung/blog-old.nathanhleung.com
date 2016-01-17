@@ -9,7 +9,7 @@ tags: []
 
 DJ Khaled: world-renowned producer and artist, or enlightened zen master? With his insightful witticisms taking Snapchat by storm, it can be hard to tell.
 
-![DJ Khaled Jet Skiing](https://usatsneakhype.files.wordpress.com/2015/12/dj-khaled-loast-at-sea.jpg)
+![DJ Khaled Jet Skiing](https://i.imgur.com/7PExK5P.jpg)
 
 ## Background
 Khaled was born on November 26, 1975 in New Orleans to Palestinian parents. From humble roots as an employee at a local record store, he has risen through the entertainment industry to become a household name with his own label, <i>We the Best Music</i>. His albums have consistently reached the top of the Billboard 200, and he often collaborates with other wildly popular artists, such as Kanye West, Jay-Z, and Drake.
