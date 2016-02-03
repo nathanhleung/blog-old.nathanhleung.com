@@ -174,6 +174,7 @@ export default config;
 ```
 
 ## Backend
+
 ### Configuring Express
 Now that the dependencies have been installed, let's create our app.  To begin, create a file called `app.js` in the `src` directory.  The following code will set up our dependencies, connect to our DB, and create a rudimentary HTTP server.
 
@@ -405,6 +406,7 @@ TodoService.parameters = [new Inject(Http)];
 
 export {TodoService}
 ```
+
 ### Creating an Angular Component
 Now, we need to define a component.  This will hold our main frontend logic and is, to some extent, analagous to a controller in Angular 1.  Create a file in `webpack/js` called `TodoComponent.js` with the following code:
 
@@ -456,6 +458,7 @@ TodoComponent.parameters = [[TodoService]];
 
 export {TodoComponent};
 ```
+
 ### Angular Bootstrapping
 In `webpack/js`, create a new file called `boot.js` with the following contents:
 
@@ -471,6 +474,7 @@ let boot = document.addEventListener('DOMContentLoaded', () => {
 // Expose boot so it can be required by webpack.
 module.exports = boot;
 ```
+
 ### Webpack Index
 Now, we can put everything in a unified webpack file.  Create a new file in `webpack` called `index.js` with the following content:
 
