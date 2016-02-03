@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Getting Started with the MEAN Stack and Angular 2.0
+title: Getting Started with the MEAN Stack and Angular 2.0 (with ES2015)
 author: Nathan Leung
 comments: true
 tags: [nodejs]
 ---
-We'll be using the MEAN stack today with Angular 2.0 to create a rudimentary todo app.  This todo app will be able to:
+We'll be using the MEAN stack today with Angular 2.0 (written using ES2015) to create a rudimentary todo app.  This todo app will be able to:
 
 * Store todos in a MongoDB database
 * Access those todos via a REST API built with Express
