@@ -562,4 +562,4 @@ We now have a rudimentary Todo app with a Node.js/Express server and Angular fro
 There's a demo online on at [Angular 2 Todo App Demo](https://angular2-todo-app.herokuapp.com/), and the full source is viewable at [Angular 2 Todo App Source](https://github.com/nathanhleung/angular2-todo-app)
 
 ## Acknowledgments
-This was based on [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular)'s great blog post, and the architecture is based on [sahat](https://github.com/sahat)'s [Hackathon Starter](https://github.com/sahat/hackathon-starter)
+This was based on [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular?ref=nathanhleung)'s great blog post, and the architecture is based on [sahat](https://github.com/sahat)'s [Hackathon Starter](https://github.com/sahat/hackathon-starter)
