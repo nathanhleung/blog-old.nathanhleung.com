@@ -526,7 +526,7 @@ Now that we've gotten our frontend Javascript finished, we need to create our HT
 ```
 
 ### Main Jade Template
-Not, create a file in `views` called `index.jade` and put the following:
+Now, create a file in `views` called `index.jade` and put the following:
 
 ```jade
 // views/index.jade
