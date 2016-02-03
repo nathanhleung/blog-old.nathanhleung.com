@@ -73,9 +73,11 @@ $ node app
 ```
 
 ## Gulp
+
 ### ES6 Gulpfile
 To write your Gulpfile in ES6, name your gulpfile `gulpfile.babel.js`.  When you run `gulp`, Babel will automatically be used to
 compile your gulpfile.
+
 ### Transpile Files
 To use Gulp to transpile ES6, first install the plugin: `npm install gulp-babel --save-dev`.  Here's an example of an ES6 gulpfile
 that uses `gulp-babel`:
