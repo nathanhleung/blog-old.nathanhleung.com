@@ -2,7 +2,7 @@
 layout: project
 title: Final Grade Calculator
 date: May 2015
-description: A multifunctioned grade calculator.  Mainly for calculating your final grade and the minimum you need on the final.  Written in AngularJS.
+description: A multifunctioned grade calculator.  Mainly for calculating your final grade and the minimum you need on the final. Built with AngularJS.
 projectUrl: http://xyz.nathanhleung.com/gradecalculator
 order: 3
 ---
