@@ -2,7 +2,7 @@
 layout: project
 title: Club Utilities
 date: November 2015
-description: A calendar showing par credit values for various clubs at Wissahickon.  Written in ES6 using React.
+description: A calendar showing par credit values for various clubs at Wissahickon.  Built with React and ES2015.
 projectUrl: https://xyz.nathanhleung.com/club-utils
 order: 4
 ---
