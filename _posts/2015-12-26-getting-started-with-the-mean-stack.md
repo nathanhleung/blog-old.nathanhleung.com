@@ -557,10 +557,9 @@ We now have a rudimentary Todo app with a Node.js/Express server and Angular fro
 There's a demo online on at [Angular 2 Todo App Demo](https://angular2-todo-app.herokuapp.com/), and the full source is viewable at [Angular 2 Todo App Source](https://github.com/nathanhleung/angular2-todo-app)
 
 ### Other Notes
+If you get a warning like the one below, it's because one of the Angular 2 dependencies, Zone.js, deprecated a couple of methods which the latest Angular still uses. We'll just have to wait until Angular is updated for the warnings to stop showing up.
 
 ![screenshot of warnings](https://i.imgur.com/Hv70Ist.png)
-
-You may get a warning like the one above, however it has nothing to do with us—one of the dependencies, Zone.js, deprecated a couple of methods which the latest Angular still uses. 
 
 ## Acknowledgments
 This was based on [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular?ref=nathanhleung)'s great blog post, and the architecture is based on [sahat](https://github.com/sahat)'s [Hackathon Starter](https://github.com/sahat/hackathon-starter)
