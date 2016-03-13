@@ -54,6 +54,9 @@ To start your app, create a file called `package.json` in the root app directory
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "4.2.1"
+  },
   "scripts": {
     "babel": "babel src --out-dir lib",
     "babel:w": "babel -w src --out-dir lib",
@@ -65,30 +68,29 @@ To start your app, create a file called `package.json` in the root app directory
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular2": "^2.0.0-beta.0",
-    "body-parser": "^1.14.2",
+    "angular2": "^2.0.0-beta.9",
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.7.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.3",
-    "express": "^4.13.3",
+    "css-loader": "^0.23.1",
+    "es6-promise": "^3.1.2",
+    "es6-shim": "^0.35.0",
+    "express": "^4.13.4",
+    "file-loader": "^0.8.5",
     "jade": "^1.11.0",
     "method-override": "^2.3.5",
-    "mongoose": "^4.3.4",
-    "morgan": "^1.6.1",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.0",
-    "systemjs": "0.19.6",
-    "zone.js": "0.5.10",
-    "babel-cli": "^6.3.17",
-    "babel-core": "^6.3.26",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.3.13",
-    "css-loader": "^0.23.1",
-    "file-loader": "^0.8.5",
+    "mongoose": "^4.4.7",
+    "morgan": "^1.7.0",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "^5.0.0-beta.2",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
-    "uglify-loader": "^1.3.0",
-    "webpack": "^1.12.9"
+    "systemjs": "^0.19.24",
+    "webpack": "^1.12.14",
+    "zone.js": "^0.6.2"
   }
 }
 ```
@@ -122,7 +124,6 @@ There are a lot of dependencies.  If you're really interested, here's why we nee
 * file-loader - Allows Webpack to load font files (e.g. in CSS)
 * script-loader - Allows Webpack to inline JS without parsing `require`s
 * style-loader - Allows Webpack to link CSS sheets in HTML files
-* uglify-loader - Webpack loader which minifies JS
 * webpack - Webpack packages and processes frontend files
 
 ## Setting Up Our Environent
@@ -159,12 +160,6 @@ let config = {
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, // Use the file-loader for fonts
         loaders: ['file-loader']
-      }
-    ],
-    postLoaders: [
-      {
-        test: /\.js$/, // Minify all .js files
-        loaders: ['uglify-loader']
       }
     ]
   }
