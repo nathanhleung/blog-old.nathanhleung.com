@@ -77,25 +77,25 @@ To start your app, create a file called `package.json` in the root app directory
     "bootstrap": "^3.3.6",
     "css-loader": "^0.23.1",
     "es6-promise": "^3.1.2",
-    "es6-shim": "^0.35.0",
+    "es6-shim": "0.33.3",
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
     "jade": "^1.11.0",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.7",
     "morgan": "^1.7.0",
-    "reflect-metadata": "^0.1.3",
+    "reflect-metadata": "0.1.2",
     "rxjs": "^5.0.0-beta.2",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
     "systemjs": "^0.19.24",
     "webpack": "^1.12.14",
-    "zone.js": "^0.6.2"
+    "zone.js": "0.5.15"
   }
 }
 ```
 
-This file tells [NPM](https://www.npmjs.com) what dependencies we need, and sets up a few helper scripts we can use to compile our ES6 and package our frontend files.
+This file tells [NPM](https://www.npmjs.com) what dependencies we need, and sets up a few helper scripts we can use to compile our ES6 and package our frontend files. The reason some versions are prefixed with `^` and others aren't is because some dependencies are OK to be updated (`^`) while others are Angular peer dependencies, and Angular calls for those specific versions.
 
 To install the dependencies, run `npm install` - NPM will create a new directory called `node_modules` and put our dependencies in there.
 
