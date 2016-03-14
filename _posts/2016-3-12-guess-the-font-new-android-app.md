@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Guess the Font - A New App Helping You Learn Great Typography
+title: Guess the Font - A Typographical Adventure!
 author: Nathan Leung
 comments: true
 tags: []
