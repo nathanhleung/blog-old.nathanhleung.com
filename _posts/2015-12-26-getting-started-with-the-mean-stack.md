@@ -9,7 +9,7 @@ We'll be using the MEAN stack today with Angular 2.0 (written using ES2015) to c
 
 * Store todos in a MongoDB database
 * Access those todos via a REST API built with Express
-* Display those todos in a single page application built with the latest Angular 2.0 beta (beta.0).
+* Display those todos in a single page application built with the latest Angular 2.0 beta (beta.9).
 
 ## The Final Product
 Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
