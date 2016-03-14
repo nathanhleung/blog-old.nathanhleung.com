@@ -31,7 +31,7 @@ We'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel
 
 This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x).
 
-Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing [Angular 1.x](https://angularjs.org/), so our app will be written with the latest Angular 2 beta (beta.0). Let's begin!
+Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing [Angular 1.x](https://angularjs.org/), so our app will be written with the latest Angular 2 beta (beta.9). Let's begin!
 
 ## File Structure
 Create a new directory called `todoapp` with the following structure:
