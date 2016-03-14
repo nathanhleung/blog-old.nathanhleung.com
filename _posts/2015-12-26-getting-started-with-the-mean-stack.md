@@ -16,6 +16,9 @@ Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
 
 ![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
 
+## Why Angular 2.0 with ES2015 (not TypeScript)
+ES2015 solves a lot of problems in ES5 that [TypeScript](http://www.typescriptlang.org/) addressed, and my personal opinion is that TypeScript adds unnecessary complexity to an already complex framework—ES2015 is already a standard anyways, so why not use that? Angular 2 can be cleanly written with ES2015 (albeit a few hacks are required to replicate TypeScript decorator behavior)—now we just need to see how!
+
 ## MEAN Stack Recap
 The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).  Each of these components can be used to make an app in the common [model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
 
