@@ -3,7 +3,7 @@ layout: post
 title: Configuring Babel 6.0
 author: Nathan Leung
 comments: true
-tags: [nodejs]
+tags: [nodejs,javascript]
 ---
 Today we'll be configuring [Babel](https://babeljs.io/) 6.0, a Javascript transpiler that allows you to write ES6 (and beyond) code.  Babel transpiles files into vanilla ES5 which can be used in any major browser (or Node.js).  Here's how to get started.
 
