@@ -3,7 +3,7 @@ layout: post
 title: Club Utilities - Check your Club Credit
 author: Nathan Leung
 comments: true
-tags: [misc]
+tags: [misc,javascript]
 ---
 If you're wondering how much club credit you should have at this point in the year, here's a quick tool:
 
