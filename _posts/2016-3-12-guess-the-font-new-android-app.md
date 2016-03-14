@@ -3,11 +3,11 @@ layout: post
 title: Guess the Font - A Typographical Adventure!
 author: Nathan Leung
 comments: true
-tags: []
+tags: [apps,javascript]
 ---
 
 [Guess the Font](https://play.google.com/store/apps/details?id=com.ionicframework.fontsapp826251) was recently released on Android!
-If you're interested in typography and want to learn about new fonts please take a look!
+If you're interested in typography and want to learn about new fonts please take a look. Built with Ionic.
 
 [![video](https://img.youtube.com/vi/QKviTH_X8B8/0.jpg)](https://www.youtube.com/watch?v=QKviTH_X8B8)
 
