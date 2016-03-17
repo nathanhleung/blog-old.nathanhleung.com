@@ -5,6 +5,8 @@ author: Nathan Leung
 comments: true
 tags: [nodejs,javascript]
 ---
+> Last updated on March 17, 2016 to angular@2.0.0.beta.9 (dependencies updated as well)
+
 We'll be using the MEAN stack today with Angular 2.0 (written using ES2015) to create a rudimentary todo app.  This todo app will be able to:
 
 * Store todos in a MongoDB database
