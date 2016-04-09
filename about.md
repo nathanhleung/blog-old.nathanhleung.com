@@ -5,7 +5,7 @@ title: About
 > I have no fear, only ambition!<br>
 > &ndash; Tupac Shakur
 
-I'm Nathan, lead web designer and developer at <a href="https://www.leungenterprises.com" target="_blank">Leung Enterprises</a>.
+I'm Nathan, a student and also lead web designer and developer at <a href="https://www.leungenterprises.com" target="_blank">Leung Enterprises</a>.
 
 I enjoy building useful, innovative, and intuitive web apps.  Visit my <a href="http://github.com/nathanhleung" target="_blank">Github profile</a> to see a few things that I've made, or check out the <a href="/projects/" target="_blank">Projects</a> page on this site.
 
