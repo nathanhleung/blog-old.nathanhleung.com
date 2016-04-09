@@ -5,7 +5,8 @@ author: Nathan Leung
 comments: true
 tags: [nodejs,javascript]
 ---
-> Last updated on March 17, 2016 to angular@2.0.0.beta.9 (dependencies updated as well)
+> Updated on April 9, 2016 to fix code that was causing a runtime error
+> Updated on March 17, 2016 to angular@2.0.0.beta.9 (dependencies updated as well)
 
 We'll be using the MEAN stack today with Angular 2.0 (written using ES2015) to create a rudimentary todo app.  This todo app will be able to:
 
@@ -350,7 +351,7 @@ app.get('/', mainController.getIndex);
 app.get('/templates/:template', mainController.getTemplate);
 app.get('/todos', mainController.getAllTodos);
 app.post('/todos', mainController.postNewTodo);
-app.delete('/todos', mainController.deleteAllTodos);
+app.delete('/todos', mainController.deleteTodo);
 
 /**
  * Start app
