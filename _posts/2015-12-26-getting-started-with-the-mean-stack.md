@@ -351,7 +351,7 @@ app.get('/', mainController.getIndex);
 app.get('/templates/:template', mainController.getTemplate);
 app.get('/todos', mainController.getAllTodos);
 app.post('/todos', mainController.postNewTodo);
-app.delete('/todos', mainController.deleteTodo);
+app.delete('/todos/:id', mainController.deleteTodo);
 
 /**
  * Start app
