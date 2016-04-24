@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting Started with the MEAN Stack and Angular 2.0 (with ES2015)
+title: Getting Started with the MEAN Stack and Angular 2.0 (with ES6/ES2015)
 author: Nathan Leung
 comments: true
 tags: [nodejs,javascript]
@@ -449,11 +449,9 @@ class TodoComponent {
 TodoComponent.annotations = [
   new Component({
     selector: 'todo-app', // Tag to show app
-    providers: [TodoService, HTTP_PROVIDERS] // Lets Angular know about TodoService and Http
-  }),
-  new View({
+    providers: [TodoService, HTTP_PROVIDERS], // Lets Angular know about TodoService and Http
     templateUrl: 'templates/TodoComponent' // Our template, we'll create this next
-  })
+  }),
 ];
 
 TodoComponent.parameters = [[TodoService]];
