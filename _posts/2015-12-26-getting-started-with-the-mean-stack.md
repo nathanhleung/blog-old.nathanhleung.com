@@ -5,9 +5,9 @@ author: Nathan Leung
 comments: true
 tags: [nodejs,javascript]
 ---
-> Updated on April 9, 2016 to fix code that was causing a runtime error
-
-> Updated on March 17, 2016 to angular@2.0.0.beta.9 (dependencies updated as well)
+> 24 April 2016: Update to angular@2.0.0.beta.15<br>
+> 9 April 2016: Fix call to wrong method which was causing a runtime error<br>
+> 17 March 2016: Update to angular@2.0.0.beta.9 (dependencies updated as well)
 
 We'll be using the MEAN stack today with Angular 2.0 (written using ES2015) to create a rudimentary todo app.  This todo app will be able to:
 
