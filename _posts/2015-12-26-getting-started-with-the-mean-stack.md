@@ -13,7 +13,7 @@ We'll be using the MEAN stack today with Angular 2.0 (written using ES2015) to c
 
 * Store todos in a MongoDB database
 * Access those todos via a REST API built with Express
-* Display those todos in a single page application built with the latest Angular 2.0 beta (beta.9).
+* Display those todos in a single page application built with the latest Angular 2.0 beta (beta.15).
 
 ## The Final Product
 Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
@@ -21,7 +21,7 @@ Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
 ![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
 
 ## Why Angular 2.0 with ES2015 (not TypeScript)
-ES2015 solves a lot of problems in ES5 that [TypeScript](http://www.typescriptlang.org/) addressed, and my personal opinion is that TypeScript adds unnecessary complexity to an already complex framework—ES2015 is already a standard anyways, so why not use that? Angular 2 can be cleanly written with ES2015 (albeit a few hacks are required to replicate TypeScript decorator behavior)—now we just need to see how!
+ES2015 solves a lot of problems in ES5 that [TypeScript](http://www.typescriptlang.org/) addressed, and my personal opinion is that TypeScript adds unnecessary complexity to an already complex framework—ES2015 is already a standard anyways, so why not use that? Angular 2 can be cleanly written with ES6/ES2015 (albeit a few hacks are required to replicate TypeScript decorator behavior)—now we just need to see how!
 
 ## MEAN Stack Recap
 The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).  Each of these components can be used to make an app in the common [model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
@@ -35,7 +35,7 @@ We'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel
 
 This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x).
 
-Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing [Angular 1.x](https://angularjs.org/), so our app will be written with the latest Angular 2 beta (beta.9). Let's begin!
+Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing [Angular 1.x](https://angularjs.org/), so our app will be written with the latest Angular 2 beta (beta.15). Let's begin!
 
 ## File Structure
 Create a new directory called `todoapp` with the following structure:
