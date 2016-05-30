@@ -22,6 +22,24 @@ pre {
 .border-darkgray {
   border: 1px solid #333;
 }
+abbr {
+  position: relative;
+
+  &:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    right: -50%;
+    bottom: 100%;
+    width: 200px;
+    font-weight: 400;
+    background: rgba(0,0,0, 0.8);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 7px 5px;
+    text-transform: none;
+  }
+}
 
 // colors
 /* Black */
