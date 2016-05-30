@@ -1,5 +1,5 @@
 # Dependencies
-highlighter:      rouge
+highlighter:      linguist
 
 # Permalinks
 permalink:           /article/:year/:month/:day/:title/
