@@ -1,12 +1,14 @@
 ---
 layout: post
-title: Quickstart with APIs
+title: Why Use APIs
 author: Nathan Leung
 comments: true
 tags: [javascript]
 ---
 
-APIs are a way for the frontend of your application to communicate with the backend (in other words, a way for your user to get the data of your application). Consider a simple blog with some posts. These posts are likely stored in a database on the backend, and you probably have to run queries like this to access them:
+APIs are a way for the frontend of your application to communicate with the backend (in other words, a way for your user to get the data of your application). While it's possible to write an application without the use of an API and simply combine the frontend and backend logic (i.e. combine the model and the view in MVC architecture), there's a reason why APIs have become so commonplace in modern web apps today.
+
+Consider a simple blog with some posts. These posts are likely stored in a database on the backend, and you probably have to run queries like this to access them:
 
 ```js
 // app.js
