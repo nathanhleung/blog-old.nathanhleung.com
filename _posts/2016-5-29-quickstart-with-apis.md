@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quickstart with APIs with jQuery
+title: Quickstart with APIs
 author: Nathan Leung
 comments: true
 tags: [javascript]
