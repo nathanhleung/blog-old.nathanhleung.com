@@ -102,7 +102,7 @@ app.listen(8080);
 
 While our posts will at least look presentable from the client side, putting HTML into our backend Javascript files opens up a whole new can of worms.
 
-![html posts](https://i.imgur.com/xMRPEv3.png?1)
+<img src="https://i.imgur.com/xMRPEv3.png" alt="HTML posts" class="img-shadow">
 
 What if we wanted to change the site structure sometime in the future, for example? We'd have to go into those backend files and edit the layout there, potentially messing up our queries and backend logic. To solve this problem, we should separate our concerns: each file should only focus on either the backend or frontend. Here's how we can do this.
 
