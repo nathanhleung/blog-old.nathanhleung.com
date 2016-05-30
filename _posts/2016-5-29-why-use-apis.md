@@ -110,7 +110,7 @@ What if we wanted to change the site structure sometime in the future, for examp
 
 We'll separate our frontend and backend files (i.e. concerns) using an API.
 
-Here's our main index.html file:
+Here's our main HTML file:
 
 ```html
 // index.html, will be shown at http://localhost:8080/index.html (and http://localhost:8080/ too!)
