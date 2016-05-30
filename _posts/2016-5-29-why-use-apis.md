@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why Use APIs
+title: Why Use APIs?
 author: Nathan Leung
 comments: true
 tags: [javascript]
