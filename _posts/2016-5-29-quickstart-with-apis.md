@@ -10,20 +10,16 @@ APIs are a way for the frontend of your application to communicate with the back
 
 ```js
 // app.js
-// set API endpoint to /posts
-app.get('/posts', (req, res) => {
-  // query to find all posts, {} = no restrictions or search parameters, so everything is returned
-  Post.find({}).then((posts) => {
-    // send our posts back in json format with status
-    res.json({
-      // so we can check if the query was successful
-      status: "SUCCESS",
-      posts: posts
-    });
+// query to find all posts, {} = no restrictions or search parameters, so everything is returned
+Post.find({}).then((posts) => {
+  // send our posts back in json format with status
+  res.json({
+    // so we can check if the query was successful
+    status: "SUCCESS",
+    posts: posts
   });
+});
 };
-// run server on port 8080 (accessible at http://localhost:8080);
-app.listen(8080);
 ```
 
 Once we find our posts, in our code above we send the posts back to the user in JSON format. It'll look something like this (let's say that the JSON is sent after a GET request to `/posts`):
@@ -50,6 +46,7 @@ This doesn't look to pretty, unfortunately. While we could work around this by p
 
 ```js
 // app.js
+// set route to /posts, when user visits localhost:8080 this code will be run
 app.get('/posts', (req, res) => {
   Post.find({}).then((posts) => {
     let postHTML = "";
@@ -86,6 +83,7 @@ app.get('/posts', (req, res) => {
     `;
   });
 };
+// run server on port 8080 (accessible at http://localhost:8080);
 app.listen(8080);
 ```
 
