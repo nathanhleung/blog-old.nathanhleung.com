@@ -24,6 +24,8 @@ pre {
 }
 abbr {
   position: relative;
+  text-decoration: underline;
+  text-decoration-style: dotted;
 
   &:hover::after {
     content: attr(data-title);
