@@ -20,7 +20,7 @@ APIs are a way for the frontend of your application to communicate with the back
 
 Consider a simple blog with some posts. These posts are likely stored in a database on the backend, and you probably have to run queries like this to access them:
 
-```es6
+```js
 // app.js
 // query to find all posts, {} = no restrictions or search parameters, so everything is returned
 Post.find({}).then((posts) => {
@@ -36,7 +36,7 @@ Post.find({}).then((posts) => {
 
 Currently, after getting the list of posts from the database, the server simply sends the posts to the user in JSON format. The posts will look something like this on the client side (let's say that the JSON is sent after a GET request to `/posts`):
 
-```es6
+```js
 // http://localhost:8080/posts
 {
   "status": "SUCCESS",
@@ -56,7 +56,7 @@ Currently, after getting the list of posts from the database, the server simply 
 
 This doesn't look too pretty, unfortunately. While we could work around this by perhaps sending HTML back in our response like below, that code doesn't look too pretty either:
 
-```es6
+```js
 // app.js
 // set route to /posts - when user visits /posts this code will be run
 app.get('/posts', (req, res) => {
@@ -135,7 +135,7 @@ Here's our main index.html file:
 
 Here's the file we'll use to get the blog posts, on the server side. It'll simply get the data and send it to the client in raw format. (This is essentially our API, and how our frontend will get the post data).
 
-```es6
+```js
 // app.js
 app.get('/posts', () => {
   // query to find all posts, will be sent back after a GET to /posts
@@ -153,7 +153,7 @@ app.listen(8080);
 
 And here's the file we'll use (on the frontend) to generate the HTML for the posts. We'll use jQuery and AJAX to hit our API located at `/posts`.
 
-```es6
+```js
 // scripts.js (available at http://localhost:8080/scripts.js)
 // We use AJAX to send a GET request to our API endpoint, located at /posts
 $.get('/posts', (data) => {
