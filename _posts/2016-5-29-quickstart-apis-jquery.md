@@ -6,11 +6,11 @@ comments: true
 tags: [javascript]
 ---
 
-APIs are the way the front-end of your application communicates with its backend. Consider a simple blog, composed of only posts. If these posts are stored in a database on the backend, you'll probably have to do queries like this to get them:
+APIs are the way the frontend of your application communicates with its backend. Consider a simple blog, composed of only posts. If these posts are stored in a database on the backend, you'll probably have to do queries like this to get them:
 
 ```js
 // app.js
-// query to find all posts
+// query to find all posts, {} = no restrictions or search parameters, so everything is returned
 Post.find({}).then((posts) => {
   // send our posts back in json format with status
   res.json({
@@ -73,7 +73,7 @@ Post.find({}).then((posts) => {
       </head>
       <body>
         <h1>My Blog</h1>
-        // insert post html from above
+        // insert post html that we generated above after iterating over every post
         ${postHTML}
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
       </body>
@@ -85,7 +85,7 @@ Post.find({}).then((posts) => {
 While we have something a bit prettier, what if we wanted to change the site structure sometime in the future? We'd have to go into the backend javascript files and edit the layout, potentially messing up our queries and backend logic. To solve this problem, we should separate our concerns: each file should only focus on either the backend or frontend. Here's how we can do this.
 
 ## Separation of Concerns with an API
-Let's separate our frontend and our backend files.
+Let's separate our frontend and our backend files and create an API.
 
 Here's our main index.html file:
 ```html
@@ -103,7 +103,7 @@ Here's our main index.html file:
     // We'll insert our posts here
     <div id="posts"></div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    // See below
+    // See below, this will parse the data from the API and create an HTML list of our posts
     <script src="/scripts.js"></script>
   </body>
 </html>
@@ -147,4 +147,4 @@ $.get('/posts', (data) => {
 });
 ```
 
-Notice how the code is pretty much the same as what we had above, but separated into different files. While it may not seem like much, now it's a lot easier to make modifications to each aspect of the site. We can now easily change the site layout, easily change how posts are displayed, and easily change which posts are sent to the client (for example, if we were to filter the latest posts or posts with certain keywords).
+Notice how the code is pretty much the same as what we had above, but separated into different files. While it may not seem like much, now it's a lot easier to make modifications to each aspect of the blog. We can now easily change the blog layout, easily change how posts are displayed, and easily change which posts are sent to the client (for example, if we were to filter the latest posts or posts with certain keywords).
