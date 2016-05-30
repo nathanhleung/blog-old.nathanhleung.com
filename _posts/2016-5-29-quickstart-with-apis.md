@@ -6,7 +6,7 @@ comments: true
 tags: [javascript]
 ---
 
-APIs are the way the frontend of your application communicates with its backend. Consider a simple blog, composed of only posts. If these posts are stored in a database on the backend, you'll probably have to do queries like this to get them:
+APIs are a way for the frontend of your application to communicate with the backend (in other words, a way for your user to get the data of your application). Consider a simple blog with some posts. These posts are likely stored in a database on the backend, and you probably have to run queries like this to access them:
 
 ```js
 // app.js
@@ -16,8 +16,7 @@ Post.find({}).then((posts) => {
   res.json({
     // so we can check if the query was successful
     status: "SUCCESS",
-    // shorthand for posts: posts
-    posts
+    posts: posts
   });
 });
 ```
@@ -118,6 +117,7 @@ Post.find({}).then((posts) => {
   // send our posts back in json format with status
   res.json({
     status: "SUCCESS",
+    // shorthand for posts: posts
     posts
   });
 });
