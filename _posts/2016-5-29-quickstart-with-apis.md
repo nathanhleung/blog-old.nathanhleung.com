@@ -88,6 +88,7 @@ While we have something a bit prettier, what if we wanted to change the site str
 Let's separate our frontend and our backend files and create an API.
 
 Here's our main index.html file:
+
 ```html
 // index.html, will be shown at http://localhost:8080/index.html
 <!DOCTYPE html>
