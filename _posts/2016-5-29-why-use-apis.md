@@ -6,7 +6,7 @@ comments: true
 tags: [javascript]
 ---
 
-<abbr title="Application Programming Interfaces">APIs</abbr> are a way for the frontend of your application to communicate with the backend (in other words, a way for your user to get the data of your application). While it's possible to write an application without the use of an API, and simply combine the frontend and backend logic (i.e. combine the model and the view in <abbr title="Model-View-Controller, a common architecture for modern applications">MVC</abbr> architecture), there's a reason why APIs have become so commonplace in web apps today.
+<abbr data-title="Application Programming Interfaces">APIs</abbr> are a way for the frontend of your application to communicate with the backend (in other words, a way for your user to get the data of your application). While it's possible to write an application without the use of an API, and simply combine the frontend and backend logic (i.e. combine the model and the view in <abbr data-title="Model-View-Controller, a common architecture for modern applications">MVC</abbr> architecture), there's a reason why APIs have become so commonplace in web apps today.
 
 ```md
 # HOW APIs WORK IN WEB APPS
@@ -34,7 +34,7 @@ Post.find({}).then((posts) => {
 };
 ```
 
-Currently, after getting the list of posts from the database, the server simply sends the posts to the user in <abbr title="JavaScript Object Notation, a common way of representing data in Javascript">JSON</abbr> format. The posts will look something like this on the client side (let's say that the JSON is sent after a <abbr title="The type of request you're sending when you're not submitting forms on websites">GET</abbr> request to `/posts`):
+Currently, after getting the list of posts from the database, the server simply sends the posts to the user in <abbr data-title="JavaScript Object Notation, a common way of representing data in Javascript">JSON</abbr> format. The posts will look something like this on the client side (let's say that the JSON is sent after a <abbr data-title="The type of request you're sending when you're not submitting forms on websites">GET</abbr> request to `/posts`):
 
 ```js
 // http://localhost:8080/posts
@@ -151,7 +151,7 @@ app.get('/posts', () => {
 app.listen(8080);
 ```
 
-And here's the file we'll use (on the frontend) to generate the HTML for the posts. We'll use <abbr title="A popular Javascript library which makes a lot of things easier (like AJAX)">jQuery</abbr> and <abbr title="Asynchronous Javascript and XML, used to load data from external sources (like an API!)">AJAX</abbr> to hit our API located at `/posts`.
+And here's the file we'll use (on the frontend) to generate the HTML for the posts. We'll use <abbr data-title="A popular Javascript library which makes a lot of things easier (like AJAX)">jQuery</abbr> and <abbr data-title="Asynchronous Javascript and XML, used to load data from external sources (like an API!)">AJAX</abbr> to hit our API located at `/posts`.
 
 ```js
 // scripts.js (available at http://localhost:8080/scripts.js)
