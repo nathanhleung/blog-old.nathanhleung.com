@@ -14,7 +14,9 @@ APIs are the way the front-end of your application communicates with its backend
 Post.find({}).then((posts) => {
   // send our posts back in json format with status
   res.json({
+    // so we can check if the query was successful
     status: "SUCCESS",
+    // shorthand for posts: posts
     posts
   });
 });
@@ -63,8 +65,10 @@ Post.find({}).then((posts) => {
     <html>
       <head>
         <title>my blog!</title>
+        <!-- boilerplate html -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- bootstrap so it doesn't look too ugly -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
       </head>
       <body>
