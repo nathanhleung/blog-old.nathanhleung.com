@@ -502,7 +502,7 @@ Now that we've gotten our frontend Javascript finished, we need to create our HT
 .container
   .jumbotron.text-center
     h1 Todos&nbsp;
-      span.label.label-info {{ todos.length }}
+      span.label.label-info {% raw %}{{todos.length}}{ endraw %}
   .row
     .col-sm-6.col-sm-offset-3
       table.table.table-bordered
@@ -514,7 +514,7 @@ Now that we've gotten our frontend Javascript finished, we need to create our HT
             td
               input(type='checkbox' on-click='deleteTodo(todo._id)' bind-checked="false")
               | &nbsp;&nbsp;
-              | {{ todo.text }}
+              | {% raw %}{{todo.text}}{ endraw %}
   .row
     .col-sm-6.col-sm-offset-3
       form(on-ngSubmit='createTodo()')
