@@ -182,4 +182,4 @@ We now have 3 files: `index.html` contains the site structure, `app.js` contains
 
 It's interesting to note how the code we have now is pretty much the same as what we had in the beginning, but it's just separated into different files. While it may not seem like much, now our code is a lot easier to maintain, and we can easily make modifications to each aspect of the blog.
 
-We can now easily change the blog layout (in `index.html`), easily change how posts are displayed (in `scripts.js`), and easily change which posts are sent to the client (in `app.js`, for example, if we were to filter the latest posts or posts with certain keywords in a search feature).
+We can now easily change the blog layout (in `index.html`), easily change how posts are displayed (in `scripts.js`), and easily change which posts are sent to the client (in `app.js`; for example, if we were to filter the latest posts or posts with certain keywords for a search feature).
