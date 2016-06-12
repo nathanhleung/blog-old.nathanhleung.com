@@ -8,7 +8,7 @@ relative_permalinks: false
 # Setup
 title:            Nathan Leung
 tagline:          'Blog'
-description:      'Web Dev/Node.js/MEAN Stack'
+description:      'Node.js/Angular/ES6'
 baseurl:          /
 
 author:
