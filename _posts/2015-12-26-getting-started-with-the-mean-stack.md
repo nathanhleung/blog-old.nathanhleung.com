@@ -9,33 +9,28 @@ tags: [nodejs,javascript]
 > 9 April 2016: Fix call to wrong method which was causing a runtime error<br>
 > 17 March 2016: Update to angular@2.0.0.beta.9 (dependencies updated as well)
 
-We'll be using the MEAN stack today with Angular 2.0 (written using ES2015) to create a rudimentary todo app.  This todo app will be able to:
+There's been a dearth of good documentation about building Angular 2 apps with vanilla ES6/ES2015 (Typescript's been stealing the show so far), so today we'll be using Angular 2 and a simple MEAN backend (MongoDB, ExpressJS, and Node.js) to create a rudimentary todo app. This todo app will:
 
 * Store todos in a MongoDB database
 * Access those todos via a REST API built with Express
-* Display those todos in a single page application built with the latest Angular 2.0 beta (beta.15).
+* Display those todos in a single page application built with the latest Angular 2 beta (beta.15).
 
 ## The Final Product
 Demo: [Angular 2 Todo App](https://angular2-todo-app.herokuapp.com/)
 
 ![Angular 2 Todo App](https://i.imgur.com/XNrMc0O.png)
 
-## Why Angular 2.0 with ES2015 (not TypeScript)
-ES2015 solves a lot of problems in ES5 that [TypeScript](http://www.typescriptlang.org/) addressed, and my personal opinion is that TypeScript adds unnecessary complexity to an already complex framework—ES2015 is already a standard anyways, so why not use that? Angular 2 can be cleanly written with ES6/ES2015 (albeit a few hacks are required to replicate TypeScript decorator behavior)—now we just need to see how!
-
 ## MEAN Stack Recap
-The MEAN Stack is comprised of [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).  Each of these components can be used to make an app in the common [model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
+Just a quick recap for those who aren't familiar (although if you are, feel free to skip to the next section): the MEAN Stack stands for [MongoDB](https://www.mongodb.org/), [Express.js](http://expressjs.com/), [AngularJS](https://angular.io/) and [Node.js](https://nodejs.org/).  Here's how each of these components fit together in our app.
 
-* MongoDB is a database (the "M")
-* Express.js provides routing support (i.e. mapping URLs to the correct destination/action). It's the "C" in MVC.
-* Angular is in theory a "MV*" framework but lately (Angular 2.0) it's been looking a lot like [React](https://facebook.github.io/react/), a view framework. In our case, we're using Angular as the "V" in our full MEAN MVC.
-* Node.js is the engine that allows us to run Javascript code on the server in the first place.
+* Node.js is a server-side Javascript engine and what allows us to run our code!
+* MongoDB is our database
+* Express.js is a Node.js web framework that most importantly allows us to route requests to the correct destination
+* Angular 2 is the cutting-edge frontend framework that allows our users to interact and change data in our app
 
-We'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel](https://babeljs.io/) transpiler, and we'll package our frontend components using [Webpack](https://webpack.github.io/) (which allows `require`s in our frontend code).
+We'll write the entire app in ES6 (aka ES2015, Harmony, ESNext) using the [Babel](https://babeljs.io/) transpiler, and we'll package our frontend components using [Webpack](https://webpack.github.io/) (which allow us to use `require`s in our frontend code).
 
-This getting started guide applies to the current latest stable versions of Express (4.x) and Node (4.x).
-
-Regarding Angular, with the multiple breaking changes occurring with Angular 2 it makes more sense to get used to Angular 2 than continue writing [Angular 1.x](https://angularjs.org/), so our app will be written with the latest Angular 2 beta (beta.15). Let's begin!
+Let's begin!
 
 ## File Structure
 Create a new directory called `todoapp` with the following structure:
