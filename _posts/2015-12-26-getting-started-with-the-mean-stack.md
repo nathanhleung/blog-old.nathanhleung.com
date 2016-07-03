@@ -9,7 +9,7 @@ tags: [nodejs,javascript]
 > 9 April 2016: Fix call to wrong method which was causing a runtime error<br>
 > 17 March 2016: Update to angular@2.0.0.beta.9 (dependencies updated as well)
 
-There's been a dearth of good documentation about building Angular 2 apps with vanilla ES6/ES2015 (Typescript's been stealing the show so far), so today we'll be using Angular 2 and a simple MEAN backend (MongoDB, ExpressJS, and Node.js) to create a rudimentary todo app. This todo app will:
+There's been a dearth of good documentation about building Angular 2 apps with vanilla ES6/ES2015 (Typescript's been stealing the show so far), so today we'll be using vanilla ES6 in conjunction with Angular 2 and a simple MEAN backend (MongoDB, ExpressJS, and Node.js) to create a rudimentary todo app. This todo app will:
 
 * Store todos in a MongoDB database
 * Access those todos via a REST API built with Express
