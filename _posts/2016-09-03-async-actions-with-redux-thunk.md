@@ -9,7 +9,7 @@ Let's say we're writing a small React/Redux app and we need to get data from an 
 
 To start, we write up a generic action creator like so: 
 
-```
+```js
 function getBitcoinPrice() {
   return {
     type: 'GET_BITCOIN_PRICE',
@@ -19,13 +19,13 @@ function getBitcoinPrice() {
 
 Our corresponding reducer looks like this:
 
-```
+```js
 function bitcoinPriceApp(state = 0, action) {
   switch (action.type) {
     case: 'GET_BITCOIN_PRICE':
       return // How can we get the new price?
     default:
-	  return state;
+      return state;
   }
 }
 ```
@@ -38,7 +38,7 @@ Enter [Redux Thunk](https://github.com/gaearon/redux-thunk). Redux Thunk allows 
 
 Here's what our action creator looks like with Redux Thunk. We'll have to create a new action, `RECEIVE_BITCOIN_PRICE`, to handle the completion of the request.
 
-```
+```js
 function receiveBitcoinPrice(price) {
   return {
     type: 'RECEIVE_BITCOIN_PRICE',
@@ -68,7 +68,7 @@ Notice the use of the ES7 async function notation—this is because we're using 
 
 We've got our action now, but our reducer will be confused if we try to run our code, since it's expecting a plain object with a `type` key, not a function. In order to allow Redux to understand our thunk, we need to register Redux Thunk as middleware:
 
-```
+```js
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import bitcoinPriceApp from './reducers/bitcoinPriceApp';
@@ -83,7 +83,7 @@ Redux Thunk will intercept actions that are functions and handle them, while sti
 
 There are just a few edits we need to make to our reducer before we're finished.
 
-```
+```js
 function bitcoinPriceApp(state = 0, action) {
   switch (action.type) {
     // Our thunk will call the
