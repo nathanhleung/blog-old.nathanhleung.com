@@ -22,7 +22,7 @@ Our corresponding reducer looks like this:
 ```js
 function bitcoinPriceApp(state = 0, action) {
   switch (action.type) {
-    case: 'GET_BITCOIN_PRICE':
+    case 'GET_BITCOIN_PRICE':
       return // How can we get the new price?
     default:
       return state;
@@ -90,7 +90,7 @@ function bitcoinPriceApp(state = 0, action) {
     // RECEIVE_BITCOIN_PRICE action
     // pass it the current BTC price
     // when the API request finishes
-    case: 'RECEIVE_BITCOIN_PRICE':
+    case 'RECEIVE_BITCOIN_PRICE':
       return action.price
     default:
 	  return state;
