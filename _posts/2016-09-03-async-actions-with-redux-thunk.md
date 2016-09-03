@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Async Actions in React/Redux with Redux-Thunk
+title: Async Actions in Redux with Redux Thunk
 author: Nathan Leung
 comments: true
 tags: [javascript]
