@@ -8,6 +8,7 @@ Thanks for checking out my apps! If you have any questions or concerns about the
 If you came here looking for the FBLA Yard Sale app, it's published on the Play Store here: [FBLA Yard Sale App](https://play.google.com/store/apps/details?id=com.nathanhleung.fblayardsale).
 
 For a full demonstration of functionality, install the app on your device and log in with the following demo credentials:
+
 ```
 Username: hey
 Password: hey
