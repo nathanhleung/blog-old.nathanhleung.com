@@ -14,4 +14,6 @@ Username: hey
 Password: hey
 ```
 
+The App Server is running on a free Heroku dyno, so the log in process may take longer than expected. Please be patient.
+
 [![FBLA Yard Sale App Icon](https://i.imgur.com/8PgoUMY.png)](https://play.google.com/store/apps/details?id=com.nathanhleung.fblayardsale)
