@@ -17,3 +17,21 @@ Password: hey
 The App Server is running on a free Heroku dyno, so the log in process may take longer than expected. Please be patient.
 
 [![FBLA Yard Sale App Icon](https://i.imgur.com/8PgoUMY.png)](https://play.google.com/store/apps/details?id=com.nathanhleung.fblayardsale)
+
+## Apps Privacy Policy
+
+### Your Information
+
+When you sign up for an app, we collect the personal information you give us such as your name, address and email address.
+
+### Consent
+
+When you provide us with personal information to sign up, we imply that you consent to our collecting it and using it for that specific reason only.
+
+### Security
+
+To protect your personal information, we take reasonable precautions and follow industry best practices to make sure it is not inappropriately lost, misused, accessed, disclosed, altered or destroyed.
+
+### Changes
+
+We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website.
